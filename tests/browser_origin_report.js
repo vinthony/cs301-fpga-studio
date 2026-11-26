@@ -1,0 +1,13 @@
+async()=>{
+let checks=0,instances=0;const ok=(v,n)=>{if(!v)throw Error(n);checks++},wait=ms=>new Promise(r=>setTimeout(r,ms)),d=()=>document.querySelector('.anatomy-dialog[open]');
+for(const b of Object.values(ANATOMY))for(const p of b.parts.filter(p=>p.ref)){
+ const source={parent:b.id,part:p.id,state:anatomyState(),historical:false,serial:null},html=anatomyOriginReportMarkup(source),doc=new DOMParser().parseFromString(html,'text/html');instances++;ok(!!doc.querySelector('.origin-report'),'known instance source '+b.id+p.id);ok(!doc.querySelector('script,button,input,iframe'),'readonly source '+b.id+p.id);ok(doc.querySelectorAll('tbody tr').length===b.nets.filter(n=>n.to.startsWith(p.id+'.')||n.from.startsWith(p.id+'.')).length,'only related endpoints '+b.id+p.id);
+}
+ok(anatomyOriginReportMarkup({parent:'missing',part:'X'})==='','unknown parent omitted');
+d()?.querySelector('[data-an-close]').click();openArchitecture('fulladder');await wait(100);d().querySelector('[data-toggle="a"]').click();d().querySelector('[data-observation-prev]').click();d().querySelector('[data-part="X2"]').dispatchEvent(new MouseEvent('dblclick',{bubbles:true}));await wait(100);d().querySelector('[data-toggle="a"]').click();const original=URL.createObjectURL,oldClick=HTMLAnchorElement.prototype.click;let blob;URL.createObjectURL=b=>{blob=b;return original(b)};HTMLAnchorElement.prototype.click=function(){};
+try{
+ const exportReport=async()=>{d().querySelector('[data-export-report]').click();const doc=new DOMParser().parseFromString(await blob.text(),'text/html');return {doc,data:JSON.parse(doc.querySelector('pre').textContent)}};
+ let {doc,data}=await exportReport();ok(data.sourceSnapshot.parent==='fulladder'&&data.sourceSnapshot.part==='X2','actual source metadata');ok(data.sourceSnapshot.historical&&data.sourceSnapshot.state.a===1,'actual historical parent preserved');ok(data.state.a===0,'local edited state kept separate');ok(doc.querySelector('.origin-report').textContent.includes('历史观察 #1'),'history explicit');const row=[...doc.querySelectorAll('.origin-report tbody tr')].find(n=>n.cells[0].textContent==='P');ok(row.cells[3].textContent==='1','source P remains past value');const saved=JSON.stringify(data.sourceSnapshot);({doc,data}=await exportReport());ok(JSON.stringify(data.sourceSnapshot)===saved,'repeated export stable');d().querySelector('[data-reread-parent]').click();await wait(100);({doc,data}=await exportReport());ok(!data.sourceSnapshot.historical&&data.sourceSnapshot.state.a===0,'reread report uses live source');ok(data.state.a===0,'export does not mutate local');
+}finally{URL.createObjectURL=original;HTMLAnchorElement.prototype.click=oldClick}
+return {status:'passed',parents:117,instances,checks};
+}

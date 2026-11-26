@@ -1,0 +1,19 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab02-representation/project
+[info] loading settings for project lab02-representation from build.sbt...
+[info] set current project to lab02-representation (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab02-representation/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab02-representation/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab02-representation/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] Representation4Spec:
+[info] Representation4
+[info] - should interpret all sixteen patterns before a clock edge and preserve negative zero flags
+[info] Run completed in 563 milliseconds.
+[info] Total number of tests run: 1
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 3:45:15 AM
+[info] running cs301.EmitRepresentation4 
+[success] Total time: 1 s, completed Nov 24, 2026, 3:45:16 AM

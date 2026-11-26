@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),path=require('path'),crypto=require('crypto');
+const base=path.resolve(process.argv[2]||'../..'),ctx=vm.createContext({});
+const files=['architecture.js','anatomy-catalog.js','anatomy-model.js','anatomy-experiments.js'];
+for(const f of files)vm.runInContext(fs.readFileSync(path.join(base,f),'utf8'),ctx);
+ctx.rows=fs.readFileSync('evidence/rtl.csv','utf8').trim().split('\n').slice(1).map(l=>l.split(',').map(Number));
+const result=vm.runInContext(`(()=>{let checks=0;const names=['低组候选','高组候选','当前位请求','低有效dp'];for(const [requests,digit,...values]of rows){const s=anatomyState();s.av=requests;s.bv=digit;const e=anatomyEvaluate('dotselect',s);for(let i=0;i<4;i++){if(e.nets[names[i]]!==values[i])throw Error('RTL/web mismatch '+requests+'/'+digit+'/'+names[i]);checks++}if(e.result!==values[3])throw Error('result mismatch');checks++}return {status:'passed',cases:rows.length,checks}})()`,ctx);
+const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+result.appHashes=Object.fromEntries(files.map(f=>[f,hash(path.join(base,f))]));
+result.rtlSHA256=hash('rtl/DotSelect.v');result.traceSHA256=hash('evidence/rtl.csv');
+fs.writeFileSync('evidence/web-check.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

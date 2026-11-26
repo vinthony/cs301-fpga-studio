@@ -1,0 +1,3 @@
+VCD info: dumpfile /var/folders/8j/q66785tn2zj21p4xndhpb2gw0000gn/T/cs301-compare10-tv2z7166/sample.vcd opened for output.
+PASS pairs=16 prefix_bits_per_pair=22 final_bits_per_pair=2
+<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/compare10-prefix/verification/tb.sv:21: $finish called at 16000 (1ps)

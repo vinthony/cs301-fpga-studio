@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-24",
+  "scope": "当前108层界面；各检查组覆盖范围不同，不合并为唯一断言总数",
+  "checks": [
+    {
+      "test": "browser_anatomy.js",
+      "views": 108,
+      "passed": 767,
+      "coverage": "器件、连线、独立画布、说明、引导、关闭清理、路线与代表性继承"
+    },
+    {
+      "test": "browser_learning_replay.js",
+      "passed": 33,
+      "coverage": "历史只读、恢复现场、播放暂停、切层停止、SRAM回放"
+    },
+    {
+      "test": "browser_replay_all_views.js",
+      "views": 108,
+      "passed": 648,
+      "coverage": "各层历史重放与现场状态保留"
+    },
+    {
+      "test": "browser_schematic_layout.js",
+      "views": 107,
+      "issues": [],
+      "coverage": "除整板以外的电路图文字重叠、裁切、未布线与器件信号缺失"
+    },
+    {
+      "test": "narrow-panel bounds",
+      "widths": [
+        500,
+        360
+      ],
+      "views": [
+        "adder",
+        "register",
+        "sram",
+        "bram",
+        "sramcell",
+        "lut"
+      ],
+      "issues": [],
+      "coverage": "侧栏section/table/svg横向边界；不等于完整移动端易用性验证"
+    }
+  ],
+  "fixes": [
+    "repr4顶部U、SM单元下移60布局单位，消除SM标签与顶部操作提示重叠"
+  ],
+  "unproven": [
+    "学生教学效果与易用性比较",
+    "实体FPGA一致性、制造结构、时序与电气行为",
+    "全CPU及流水线硬件完整性"
+  ]
+}

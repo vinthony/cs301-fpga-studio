@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "programs": 12,
+  "edges": 3153,
+  "architectural_snapshots": 6305,
+  "random_programs": 8,
+  "random_arithmetic_instructions_per_program": 256,
+  "oracle": "independent Python RV32 instruction interpreter plus explicit Lab12 unsupported-load policy",
+  "output": "PASS 3153 edges: PC, retired, stop reason and all 32 saved registers, pre/post\n<LOCAL_HOME>/Documents/ChatGPT/CS301 - \u8ba1\u7b97\u673a\u7cfb\u7edf\u8bbe\u8ba1/outputs/\u82af\u7247\u7ec6\u80de\u5b9e\u9a8c\u5ba4/labs/lab12-arithmetic-cpu/verification/out/tb.sv:48: $finish called at 31530000 (1ps)\n"
+}

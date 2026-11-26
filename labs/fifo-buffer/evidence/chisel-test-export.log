@@ -1,0 +1,20 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/fifo-buffer/project
+[info] loading settings for project fifo-buffer from build.sbt...
+[info] set current project to fifo-buffer (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/fifo-buffer/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/fifo-buffer/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/fifo-buffer/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] TeachingFIFOSpec:
+[info] TeachingFIFO
+[info] - should preserve queue order and simultaneous boundaries
+[info] - should support a different power of two depth
+[info] Run completed in 1 second, 72 milliseconds.
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 4 s, completed Nov 24, 2026, 5:51:48 AM
+[info] running cs301.EmitFIFO 
+[success] Total time: 1 s, completed Nov 24, 2026, 5:51:48 AM

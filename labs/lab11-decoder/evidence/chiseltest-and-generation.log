@@ -1,0 +1,18 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab11-decoder/project
+[info] loading settings for project lab11-decoder from build.sbt...
+[info] set current project to lab11-decoder (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab11-decoder/)
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab11-decoder/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] Decoder32Spec:
+[info] Decoder32
+[info] - should check fixed control contracts and reject extension and reserved encodings
+[info] - should reassemble every immediate format including sign edges and unknown formats
+[info] Run completed in 882 milliseconds.
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 4:15:09 AM
+[info] running cs301.EmitDecoder 
+[success] Total time: 1 s, completed Nov 24, 2026, 4:15:10 AM

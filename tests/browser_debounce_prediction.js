@@ -1,0 +1,7 @@
+async()=>{
+let checks=0;const ok=(v,n)=>{if(!v)throw Error(n);checks++},wait=ms=>new Promise(r=>setTimeout(r,ms)),d=()=>document.querySelector('.anatomy-dialog[open]');d()?.querySelector('[data-an-close]').click();openArchitecture('debounce');await wait(100);const h=d().querySelector('.an-prediction');h.querySelector('[data-predict="1"]').click();h.querySelector('[data-predict-start]').click();
+for(let i=0;i<5;i++){
+ h.querySelector('[data-predict-next]').click();ok(Number(d().querySelector('[data-debounce-count]').textContent)===[1,1,1,2,3][i],'independent consecutive run count '+i);ok(Number(d().querySelector('[data-debounce-stable]').textContent)===[0,0,0,0,1][i],'stable updates only fifth sample '+i);if(i===3){ok(d().querySelector('[data-debounce-next]').textContent.includes('次数=3'),'fourth saved state has next-count three');ok(h.dataset.predictionVerified!=='true','not verified early')}
+}
+const a=h.predictionReport();ok(a.verification&&a.predictionCorrect,'exercise succeeds');ok(a.rows.map(r=>r.result).join(',')==='0,0,0,0,0,1','observed stable sequence includes initial');ok(a.rows.map(r=>r.ticks).join(',')==='0,1,2,3,4,5','five actual sampling edges');ok(a.rows.map(r=>r.observed.match(/连续次数=(\d+)/)[1]).join(',')==='0,1,1,1,2,3','actual saved counts recorded');const report=new DOMParser().parseFromString(anatomyPredictionReportMarkup(a),'text/html');ok(report.body.textContent.includes('连续次数=2')&&report.body.textContent.includes('连续次数=3'),'counts retained in exported report');return {status:'passed',samples:5,checks};
+}

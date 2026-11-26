@@ -1,0 +1,27 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  5 3757k    5  195k    0     0   146k      0  0:00:25  0:00:01  0:00:24  146k
+ 88 3757k   88 3323k    0     0  1429k      0  0:00:02  0:00:02 --:--:-- 1429k
+100 3757k  100 3757k    0     0  1587k      0  0:00:02  0:00:02 --:--:-- 1587k
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab08-instruction-fields/project
+[info] loading settings for project lab08-instruction-fields from build.sbt...
+[info] set current project to lab08-instruction-fields (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab08-instruction-fields/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab08-instruction-fields/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab08-instruction-fields/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] InstructionFieldsSpec:
+[info] InstructionFields
+[info] - should extract raw slices from instruction examples and deterministic bit patterns
+[info] Run completed in 778 milliseconds.
+[info] Total number of tests run: 1
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 4:05:20 AM
+[info] running cs301.EmitFields 
+[success] Total time: 1 s, completed Nov 24, 2026, 4:05:21 AM

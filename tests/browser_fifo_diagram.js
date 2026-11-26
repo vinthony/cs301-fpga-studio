@@ -1,0 +1,10 @@
+async()=>{
+ let checks=0;const ok=(v,m)=>{if(!v)throw Error(m);checks++},wait=()=>new Promise(r=>setTimeout(r,200));
+ document.querySelector('.anatomy-dialog[open] [data-an-close]')?.click();openArchitecture('fifo');await wait();const n=document.querySelector('[data-field="data"]');n.value='85';n.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('[data-experiment-action="tick"]').click();for(let i=0;i<4;i++)document.querySelector('[data-fifo-tx-step]').click();await wait();
+ const main=()=>document.querySelector('.an-scene');ok(main().querySelector('[data-diagram-part="TXLINK"]').textContent.includes('d2'),'TX current bit');ok(main().querySelector('[data-diagram-part="RXLINK"]').textContent.includes('组装值 5'),'RX actual assembly');ok(main().querySelector('[data-diagram-part="RXQ"]').querySelectorAll('rect[fill="#4d9785"]').length===0,'empty receive array');
+ const before=document.querySelector('.an-watch').textContent;
+ document.querySelector('[data-part="TXLINK"]').dispatchEvent(new MouseEvent('dblclick',{bubbles:true}));await wait();ok(document.querySelector('[data-uart-frame-status]').textContent.includes('d2，TX=1'),'TX child snapshot');ok(!!document.querySelector('[data-reread-parent]'),'TX reread');document.querySelector('[data-return-parent]').click();await wait();
+ document.querySelector('[data-part="RXLINK"]').dispatchEvent(new MouseEvent('dblclick',{bubbles:true}));await wait();ok(document.querySelector('.an-watch').textContent.includes('已组装字节5'),'RX child snapshot');ok(document.querySelector('.an-watch').textContent.includes('数据位 d3'),'RX phase copied');document.querySelector('[data-return-parent]').click();await wait();ok(document.querySelector('.an-watch').textContent===before,'parent state preserved');
+ for(let i=0;i<6;i++)document.querySelector('[data-fifo-tx-step]').click();await wait();ok(main().querySelector('[data-diagram-part="RXQ"]').querySelectorAll('rect[fill="#4d9785"][opacity="1"]').length===4,'received 85 bit pattern');
+ return {status:'passed',checks};
+}

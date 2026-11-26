@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "vectors": 8361,
+  "opcode_patterns": 128,
+  "clock_edges": 0,
+  "simulator": "Icarus Verilog",
+  "oracle": "independent Python 32-character binary string slicing",
+  "scope": "raw slices and classroom opcode-format map, not instruction legality",
+  "output": "PASS 8361 raw-field vectors, no clocks\n<LOCAL_HOME>/Documents/ChatGPT/CS301 - \u8ba1\u7b97\u673a\u7cfb\u7edf\u8bbe\u8ba1/outputs/\u82af\u7247\u7ec6\u80de\u5b9e\u9a8c\u5ba4/labs/lab08-instruction-fields/verification/out/tb.sv:12: $finish called at 8361 (1s)\n"
+}

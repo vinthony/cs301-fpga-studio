@@ -1,0 +1,35 @@
+{
+  "zipBytes": 68435,
+  "zipSHA256": "570177b2407c39a2a8e73b8acfdf30bef5d6be0fdfd692808466031a02b50ea6",
+  "files": 12,
+  "review": "<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/raster-review-m8schpsg/raster-counter",
+  "verification": {
+    "status": "passed",
+    "exhaustiveTransitions": 4194304,
+    "trajectoryEdges": 33201,
+    "totalEdges": 4227505,
+    "preEdgeChecksPerVector": 5,
+    "postEdgeChecksPerVector": 1,
+    "vectorSHA256": "9abd18c09b7549409ef5523158cf04e53e1c28506eef45c2e4ae7b4c98245692",
+    "rtlSHA256": "574fab9a63295b3c9ffddddb9ec9ed2ea047ce4441a9227c91b7745be2d4c282",
+    "boundary": "Exhaustive cases use testbench state deposits; trajectory edges use previous captured q. Functional simulation only; no FPGA mapping or timing proof."
+  },
+  "web": {
+    "status": "passed",
+    "vectors": 4227505,
+    "checksPerVector": 10
+  },
+  "unpackedRecheck": {
+    "status": "passed",
+    "exhaustiveTransitions": 4194304,
+    "trajectoryEdges": 33201,
+    "totalEdges": 4227505,
+    "preEdgeChecksPerVector": 5,
+    "postEdgeChecksPerVector": 1,
+    "vectorSHA256": "9abd18c09b7549409ef5523158cf04e53e1c28506eef45c2e4ae7b4c98245692",
+    "rtlSHA256": "574fab9a63295b3c9ffddddb9ec9ed2ea047ce4441a9227c91b7745be2d4c282",
+    "boundary": "Exhaustive cases use testbench state deposits; trajectory edges use previous captured q. Functional simulation only; no FPGA mapping or timing proof."
+  },
+  "browserDownloadVerified": true,
+  "scope": "十位同步计数器直接Verilog功能参考；任意初态由测试台注入；不包含完整VGA、实体约束或时序证明。"
+}

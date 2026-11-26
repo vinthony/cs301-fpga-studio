@@ -1,0 +1,22 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/lab14-pipeline-cpu/project
+[info] loading settings for project lab14-pipeline-cpu from build.sbt...
+[info] set current project to lab14-pipeline-cpu (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/work/lab14-pipeline-cpu/)
+[info] compiling 3 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/lab14-pipeline-cpu/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] PipelineCPUSpec:
+[info] PipelineCPU
+[info] - should forward dependent arithmetic through a real five stage pipeline
+[info] - should demonstrate wrong results with repair disabled and fix them by stalling
+[info] - should forward store data and insert one load use bubble
+[info] - should flush a younger store when an EX branch redirects
+[info] - should drain older work and suppress younger writes on a MEM fault
+[info] - should run the Lab13 branch loop with identical architectural results
+[info] Run completed in 16 seconds, 729 milliseconds.
+[info] Total number of tests run: 6
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 6, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 19 s, completed Nov 24, 2026, 9:19:12 AM
+[info] running cs301.EmitPipeline 
+[success] Total time: 2 s, completed Nov 24, 2026, 9:19:14 AM

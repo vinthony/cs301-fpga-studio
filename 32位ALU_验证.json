@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "operations": 10,
+  "HDLVectors": 2490,
+  "modelChecks": 12459,
+  "browserChecks": 30,
+  "allViews": 101,
+  "allViewInteractionChecks": 612,
+  "allViewReplay": 101,
+  "internalLayoutViews": 100,
+  "layoutIssues": 0,
+  "predictionCases": 7,
+  "predictionBrowserChecks": 46,
+  "goalStatus": "active"
+}

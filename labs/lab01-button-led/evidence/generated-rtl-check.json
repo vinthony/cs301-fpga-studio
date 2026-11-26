@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "vectors": 96,
+  "button_patterns": 32,
+  "switch_patterns": [
+    0,
+    53,
+    65535
+  ],
+  "clock_edges": 0,
+  "simulator": "Icarus Verilog",
+  "oracle": "independent bit mapping and constant inactive display codes",
+  "output": "PASS 96 vectors: four LED map, unused D/SW, upper LEDs and display blank, no clocks\n<LOCAL_HOME>/Documents/ChatGPT/CS301 - \u8ba1\u7b97\u673a\u7cfb\u7edf\u8bbe\u8ba1/outputs/\u82af\u7247\u7ec6\u80de\u5b9e\u9a8c\u5ba4/labs/lab01-button-led/verification/out/tb.sv:11: $finish called at 96 (1s)\n"
+}

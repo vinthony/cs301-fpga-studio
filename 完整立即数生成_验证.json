@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "formats": [
+    "I",
+    "S",
+    "B",
+    "U",
+    "J"
+  ],
+  "HDLVectors": 13491,
+  "modelChecks": 26832,
+  "exhaustiveISPatternsPerFormat": 4096,
+  "exhaustiveBOffsets": 4096,
+  "browserChecks": 31,
+  "visibleInstructionBits": 32,
+  "visibleOutputBits": 32,
+  "knownExamples": 7,
+  "layoutShellChecks": 26,
+  "allViews": 103,
+  "allViewInteractionChecks": 624,
+  "allViewReplayChecks": 618,
+  "internalLayoutViews": 102,
+  "layoutIssues": 0,
+  "predictionCases": 9,
+  "predictionChecks": 59,
+  "regressions": {
+    "alu32Browser": 30,
+    "regfile32Browser": 27,
+    "operandTransfer": 12
+  },
+  "narrowScreen": {
+    "width": 500,
+    "height": 900,
+    "fitPreservesRatio": true,
+    "reducedMotion": true
+  },
+  "goalStatus": "active",
+  "limits": [
+    "Manual format selection, not full instruction Decoder",
+    "Explicit value copy, not instruction execution",
+    "No hardware timing or student effectiveness claim"
+  ]
+}

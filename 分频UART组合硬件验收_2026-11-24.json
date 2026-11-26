@@ -1,0 +1,30 @@
+{
+  "artifact": "labs/uart-clocked-tx.zip",
+  "bytes": 176308,
+  "sha256": "b478b3181ed842b58cd1e9e8cd75d06eba5752b09738384bcdc5271eef920474",
+  "chiselTests": 2,
+  "rtl": {
+    "status": "passed",
+    "postEdgeSnapshots": 110965,
+    "preEdgeSnapshots": 110964,
+    "packedBits": 27,
+    "divisor": 868,
+    "coverage": "7 directed byte frames, held requests over multiple frames, all 16 terminal-control combinations, pauses and 10000 random clocks",
+    "reference": "independent Python count and encoded-frame list",
+    "stdout": "PASS 110965 primary clock edges\ntb.v:16: $finish called at 1109650 (1s)"
+  },
+  "web": {
+    "groups": 7,
+    "checks": 134176,
+    "compared": "counter,captured,phase,TX,busy; stable one-shot requests only",
+    "excluded": "accepted/done/tick and paused elapsed-time alignment"
+  },
+  "unpackedReview": "work/uart-clocked-review-7su2ph67/uart-clocked-tx",
+  "unpackedTestExportRTLCheck": "passed",
+  "download": {
+    "http": 200,
+    "bytes": 176308,
+    "sha256Matched": true
+  },
+  "boundary": "compiled divisor868 only; no RX/FIFO/physical constraints"
+}

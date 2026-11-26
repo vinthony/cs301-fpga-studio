@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "package": {
+    "status": "packaged",
+    "bytes": 328065,
+    "files": 13,
+    "sha256": "366981e623f389f895dbca987fd565c3a261898f92b18cb0465e528975165a54",
+    "review": "<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/uart-async8-review-5ro2azfg/uart-async8-rx"
+  },
+  "chiselTests": 2,
+  "rtl": {
+    "status": "passed",
+    "postEdgeSnapshots": 455689,
+    "preEdgeSnapshots": 455688,
+    "packedBits": 28,
+    "frames": 4096,
+    "coverage": "256 bytes x both stop levels x 8 starting offsets; short pulses 1..4; periods 7/9; 10000 paused/reset random controls",
+    "reference": "independent Python absolute sample deadlines and received-bit list",
+    "stdout": "PASS 455689 edges\ntb.v:16: $finish called at 4556890 (1s)"
+  },
+  "web": {
+    "status": "passed",
+    "checks": 911377,
+    "edges": 455689,
+    "scope": "same independent 28-bit snapshots as generated RTL; sample=0 means no web sample; clear/reset initialize receiver"
+  },
+  "extractedReview": {
+    "tests": 2,
+    "rtl": {
+      "status": "passed",
+      "postEdgeSnapshots": 455689,
+      "preEdgeSnapshots": 455688,
+      "packedBits": 28,
+      "frames": 4096,
+      "coverage": "256 bytes x both stop levels x 8 starting offsets; short pulses 1..4; periods 7/9; 10000 paused/reset random controls",
+      "reference": "independent Python absolute sample deadlines and received-bit list",
+      "stdout": "PASS 455689 edges\ntb.v:16: $finish called at 4556890 (1s)"
+    }
+  },
+  "browserDownload": {
+    "bytes": 328065,
+    "sha256": "366981e623f389f895dbca987fd565c3a261898f92b18cb0465e528975165a54",
+    "matched": true
+  },
+  "scope": "sample-enabled two-stage 8x digital RX; first/second/phase/timer/bit/assembly/data/valid/error",
+  "limits": [
+    "No metastability/MTBF or analog timing model",
+    "No oversample divider, majority vote, TX/FIFO integration or board constraints",
+    "8 idle offsets are not proof of fractional-sample phase tolerance",
+    "valid/error hold while sample is disabled"
+  ]
+}

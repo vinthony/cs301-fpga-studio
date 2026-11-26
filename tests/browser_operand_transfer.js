@@ -1,0 +1,8 @@
+async()=>{
+ const checks=[],ok=(v,n)=>{if(!v)throw Error(n);checks.push(n)},wait=ms=>new Promise(r=>setTimeout(r,ms));openArchitecture('regfile32');await wait(300);const d=document.querySelector('.anatomy-dialog'),set=(k,v)=>{const x=d.querySelector('[data-field="'+k+'"]');x.value=v;x.dispatchEvent(new Event('change',{bubbles:true}))},tick=()=>d.querySelector('[data-experiment-action="tick"]').click(),stored=i=>d.querySelector('.an-scene [data-rf32-row="'+i+'"]').dataset.stored;
+ set('rfWA','1');set('rfWD','5');tick();set('rfWA','2');set('rfWD','3');tick();set('rfWA','3');set('rfRA','1');set('rfRB','2');d.querySelector('[data-transfer32="toALU"]').click();await wait(300);
+ ok(d.dataset.view==='alu32','跳转到完整32位ALU');ok(Number(d.querySelector('[data-field="av"]').value)===5&&Number(d.querySelector('[data-field="bv"]').value)===3,'两路读值被准确复制');ok(d.querySelector('.an-live-io strong').textContent==='8','5加3得到8');ok(d.querySelector('.an-transfer-note').textContent.includes('独立'),'复制语义明确');d.querySelector('[data-transfer32="toRF"]').click();await wait(300);
+ ok(d.dataset.view==='regfile32','回到同一寄存器堆实验');ok(d.querySelector('[data-field="rfWA"]').value==='3','保留写地址');ok(Number(d.querySelector('[data-field="rfWD"]').value)===8,'结果复制为待写数据');ok(stored(3)==='0','复制没有偷偷写入');ok(stored(1)==='5'&&stored(2)==='3','原操作数保持');tick();ok(stored(3)==='8','明确边沿后提交结果');set('rfRA','3');ok(d.querySelector('.an-live-io strong').textContent==='8','可通过读口确认提交');
+ d.querySelector('[data-observation-prev]').click();d.querySelector('[data-transfer32="toALU"]').dispatchEvent(new MouseEvent('click',{bubbles:true}));ok(d.dataset.view==='regfile32','历史只读期间禁止复制跳转');d.querySelector('[data-observation-live]').click();
+ return {checks:checks.length,status:'passed'};
+}

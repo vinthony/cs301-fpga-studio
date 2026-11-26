@@ -1,0 +1,3 @@
+VCD info: dumpfile /var/folders/8j/q66785tn2zj21p4xndhpb2gw0000gn/T/cs301-vga-1uhsa63h/sample.vcd opened for output.
+PASS vectors=2501 pre_checks=17 post_checks=2
+<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/vga-prefix-timing/verification/tb.sv:29: $finish called at 5002000 (1ps)

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>缓存课堂任务单 · GBU-CS301</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,"PingFang SC",sans-serif;color:#193b4a;background:#edf3f5;line-height:1.7}*{box-sizing:border-box}body{max-width:1040px;margin:32px auto;padding:0 22px}header{padding:28px;border-radius:18px;background:#123746;color:#edf6f7}h1{font-size:29px;margin:8px 0}h2{font-size:22px}h3{font-size:17px;margin-bottom:6px}.eyebrow{color:#96e0cf;letter-spacing:.12em;font-size:12px}.flow{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.flow span{padding:6px 13px;border:1px solid #6c9eaa;border-radius:20px}article{background:white;margin:22px 0;padding:26px;border:1px solid #c6d6db;border-radius:15px}a{color:#176c78}button,.lab{display:inline-block;border:1px solid #427d8b;background:#e6f4f1;border-radius:7px;padding:9px 15px;color:#163f49;cursor:pointer;font:inherit;text-decoration:none}button:hover,.lab:hover{background:#d4eee8}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #b17d1d;outline-offset:3px}label{display:block;font-weight:600;margin:15px 0 5px}textarea,input{font:inherit;width:100%;padding:10px;border:1px solid #8ba8b1;border-radius:7px;background:#fafcfd;color:#173d4a}textarea{min-height:86px;resize:vertical}ol{padding-left:24px}.note{padding:12px 15px;border-left:4px solid #ccae5e;background:#f9f4e7}.actions{display:flex;gap:10px;flex-wrap:wrap}details{margin-top:20px;border-top:1px solid #d5e1e4;padding-top:12px}summary{cursor:pointer;font-weight:600}footer{padding:20px 0 40px}.muted{color:#526e7a;font-size:13px}code{background:#eaf1f4;padding:1px 5px;border-radius:3px}.check{font-weight:400}.check input{width:auto;margin-right:8px}#saveStatus{min-height:24px} .csv-table-wrap{overflow:auto;max-height:420px;font-size:12px}.csv-table-wrap table{min-width:720px}.print-value{display:none;white-space:pre-wrap;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;margin:12px 0}th,td{border:1px solid #c3d4da;text-align:left;padding:8px}@media print{body{max-width:none;margin:0;background:white}header{color:#193b4a;background:white;border:1px solid #aaa}.actions,.lab,.muted,#saveStatus{display:none}article{break-inside:avoid}details{display:none}textarea{display:none}.print-value{display:block;min-height:80px;border:1px solid #aaa;padding:10px}input[type=file]{display:none}.csv-table-wrap{max-height:none;overflow:visible}.csv-table-wrap table{min-width:0}footer{padding:0}}
+</style></head><body>
+<header><div class="eyebrow">GBU-CS301 · 可操作课堂任务</div><h1>缓存：地址、数据与命中是三件事</h1><p>完成三组对照，解释一个返回值来自哪里，以及为什么 TAG 相同也可能不命中。</p><div class="flow"><span>① 写预测</span><span>② 改一个条件</span><span>③ 记录实际值</span><span>④ 解释并导出证据</span></div></header>
+<p class="note">本页是任务记录单，实验在链接打开的教学板中进行。先用默认状态开始每个任务；已有重要现场请先导出报告。这里的完成标记是自述，不是自动判分。</p>
+<label for="runLabel">实验编号（可选）</label><input id="runLabel" data-save placeholder="例如：第3组 / 第一次尝试" maxlength="100">
+<p id="saveStatus" role="status" class="muted">记录只保存在当前浏览器，不上传。</p>
+<article id="task1"><div class="eyebrow" style="color:#28776e">任务 01 · 当前请求 ≠ 上次返回</div><h2>改地址，就已经读了吗？</h2>
+<p>先预测：把地址 0 写成 42 并读取，再把请求地址改成 1。尚未点击“访问”时，上次返回值是什么？随后访问地址 1，会命中还是缺失？</p>
+<label for="prediction1">先写你的预测与理由</label><textarea id="prediction1" data-save></textarea>
+<a class="lab" href="learn.html?inside=memorySystem" target="_blank" rel="noopener">打开存储层次实验 ↗</a>
+<ol><li>点击“重新开始本演示”。地址设 0、待写字节设 42，执行“写后备存储并失效缓存”。</li><li>执行“访问 / 缺失回填”，记录本次地址、返回值、命中情况，以及回填的两个字节。</li><li>只把地址改为 1，先观察上次读取来源；然后再执行一次访问。</li><li>回放已执行访问，区分“讲解动画”与“再次访问”。</li></ol>
+<label for="observation1">记录三次观察：读取 0 后 / 只改地址后 / 读取 1 后</label><textarea id="observation1" data-save></textarea>
+<label for="explanation1">为什么偏移改变可以命中同一个块？</label><textarea id="explanation1" data-save></textarea>
+<p>证据：在读取地址 1 后用顶部“保存实验报告”导出报告，并用“导出观察”保存 CSV。报告中的请求与实际访问表应能解释来源。</p>
+<label for="report1">在本地核对本任务的实验报告 HTML（可选）</label><input id="report1" type="file" accept=".html,text/html" data-report-task="1"><p id="reportStatus1" role="status" class="muted">只读取报告中的状态附件，不运行报告内容；原文件仍需另附。</p><label for="evidence1">报告来源摘要</label><textarea id="evidence1" data-save readonly></textarea>
+<label for="observationCSV">本地查看任务1的观察CSV（可选）</label><input id="observationCSV" type="file" accept=".csv,text/csv"><p id="csvStatus" role="status" class="muted">使用新版存储层次页的“导出观察”。摘要会保存；重新打开本页后，逐行表需重新选择CSV。原文件仍需另附。</p><div id="csvPreview" class="csv-table-wrap" tabindex="0" aria-label="已导入观察记录，可横向滚动"></div><label for="csvEvidence">CSV来源摘要</label><textarea id="csvEvidence" data-save readonly></textarea>
+<label class="check"><input type="checkbox" id="done1" data-save>我已完成操作并保存这组证据</label>
+<details><summary>教师参考 / 完成后对照</summary><p>访问 0 首次缺失，回填块 [42, 0]、返回 42。只改地址 1 时，上次读取仍是地址 0 → 42；访问 1 后命中、返回 0。两个地址共享 TAG 与 INDEX，仅 OFFSET 不同。回放不会新增访问。</p></details></article>
+<article id="task2"><div class="eyebrow" style="color:#28776e">任务 02 · 同一行 ≠ 同一块</div><h2>低四位一样，TAG 就相同吗？</h2>
+<p>本任务使用独立的八位地址标签示例，比上一任务的 16 字节范围更大。预测：地址 0 回填后，请求地址 128，为什么会冲突？</p>
+<label for="prediction2">先写地址拆分和预测</label><textarea id="prediction2" data-save></textarea>
+<a class="lab" href="learn.html?route=cache-tag-gates&step=2" target="_blank" rel="noopener">打开缓存门级路线第 2 步 ↗</a>
+<ol><li>地址设 0、回填样本设 42，点击“从下级回填这一行”。再把地址改为 128，暂不回填。</li><li>点击“继续下一步”，检查请求 TAG、保存 TAG、VALID 与 HIT。</li><li>继续进入五位相等电路。找到 bit4 的 XOR，比较两侧输入和输出。</li><li>对比低四位相等与完整五位相等。可展开 XOR/NOT 或对应 AND 门；返回时检查上层状态仍保留。</li></ol>
+<label for="observation2">记录请求 TAG / 保存 TAG / VALID / HIT，以及 bit4 的结果</label><textarea id="observation2" data-save></textarea>
+<label for="explanation2">若只比较低四位，会出现什么错误？</label><textarea id="explanation2" data-save></textarea>
+<p>证据：导出五位相等电路报告，保留具体进入实例；不要只提交一个“EQ=0”截图。</p>
+<label for="report2">在本地核对本任务的实验报告 HTML（可选）</label><input id="report2" type="file" accept=".html,text/html" data-report-task="2"><p id="reportStatus2" role="status" class="muted">只读取报告中的状态附件，不运行报告内容；原文件仍需另附。</p><label for="evidence2">报告来源摘要</label><textarea id="evidence2" data-save readonly></textarea>
+<label class="check"><input type="checkbox" id="done2" data-save>我已完成操作并保存这组证据</label>
+<details><summary>教师参考 / 完成后对照</summary><p>地址 0 与 128 都选 INDEX=0、OFFSET=0，请求 TAG 分别为 0、16。保存 TAG 仍为 0 且 VALID=1，但完整 TAG 不相等，HIT=0。bit4 输入 1/0，XOR=1、NOT=0；低四位都相同不能推翻这一位的不同。</p></details></article>
+<article id="task3"><div class="eyebrow" style="color:#28776e">任务 03 · 相等 ≠ 有效</div><h2>TAG 全部相同，为什么仍不命中？</h2>
+<label for="prediction3">先预测：请求与保存 TAG 都为 0，VALID=0 时 HIT 是什么？</label><textarea id="prediction3" data-save></textarea>
+<a class="lab" href="learn.html?inside=cachecheck" target="_blank" rel="noopener">打开缓存命中电路 ↗</a>
+<ol><li>请求与保存 TAG 都设 0，VALID 置 0，观察 EQ 和 HIT。</li><li>只把 VALID 置 1。再只把请求 TAG 的 bit4 翻转，比较两次结果。</li><li>展开 AND 门，追踪两个输入分别来自哪里。注意本层比较输入不会改写上级缓存。</li></ol>
+<label for="observation3">记录三种条件的 EQ / VALID / HIT</label><textarea id="observation3" data-save></textarea>
+<label for="explanation3">用一句话写出命中条件，并解释有效位的作用</label><textarea id="explanation3" data-save></textarea>
+<p>证据：导出 AND 门或命中电路报告，包含来源值；说明这是组合判断，不是一次缓存读取。</p>
+<label for="report3">在本地核对本任务的实验报告 HTML（可选）</label><input id="report3" type="file" accept=".html,text/html" data-report-task="3"><p id="reportStatus3" role="status" class="muted">只读取报告中的状态附件，不运行报告内容；原文件仍需另附。</p><label for="evidence3">报告来源摘要</label><textarea id="evidence3" data-save readonly></textarea>
+<label class="check"><input type="checkbox" id="done3" data-save>我已完成操作并保存这组证据</label>
+<details><summary>教师参考 / 完成后对照</summary><table><tr><th>条件</th><th>EQ</th><th>VALID</th><th>HIT</th></tr><tr><td>相同但无效</td><td>1</td><td>0</td><td>0</td></tr><tr><td>相同且有效</td><td>1</td><td>1</td><td>1</td></tr><tr><td>不同但有效</td><td>0</td><td>1</td><td>0</td></tr></table><p>HIT = EQ AND VALID。初始化或失效的旧 TAG 不能因为数值恰好相等就视为有效缓存行。</p></details></article>
+<footer><h2>整理提交</h2><p>导出本页记录，并附上三个任务的实验报告；任务 1 再附观察 CSV。教师可对照预测、实际观察、解释和报告来源判断理解程度。</p><div class="actions"><button id="exportNotes">导出任务记录 Markdown ↓</button><button id="printNotes">打印任务单</button></div><p id="exportStatus" role="status"></p><p class="muted">本任务单不收集成绩或上传数据，也不据此宣称已经测得学生理解效果。教学模型不代表实际缓存延迟或实体 FPGA 验证。</p></footer>
+<script>
+'use strict';
+const key='gbu-cs301-cache-classroom-v1',fields=[...document.querySelectorAll('[data-save]')],status=document.querySelector('#saveStatus');
+try{const saved=JSON.parse(localStorage.getItem(key)||'{}');for(const field of fields){const value=saved[field.id];if(field.type==='checkbox')field.checked=value===true;else if(typeof value==='string')field.value=value;}}catch{}
+function save(){const record=Object.fromEntries(fields.map(f=>[f.id,f.type==='checkbox'?f.checked:f.value]));try{localStorage.setItem(key,JSON.stringify(record));status.textContent='已保存到当前浏览器；自述完成 '+[1,2,3].filter(i=>record['done'+i]).length+'/3，不代表自动判分。';}catch{status.textContent='浏览器未能保存，请及时导出任务记录。';}}
+fields.forEach(f=>f.addEventListener('input',save));
+function reportEvidence(text,task,filename){
+ const doc=new DOMParser().parseFromString(text,'text/html');let record=null;
+ for(const pre of doc.querySelectorAll('pre')){try{const parsed=JSON.parse(pre.textContent);if(parsed?.format==='GBU-CS301-observation'){record=parsed;break;}}catch{}}
+ if(!record||typeof record.view!=='string'||!record.state||typeof record.state!=='object'||Array.isArray(record.state))throw Error('没有找到教学板的状态附件，请选择“保存实验报告”导出的HTML。');
+ const expected={1:['memorySystem'],2:['tageq5'],3:['cachecheck','and']}[task],state=record.state;
+ const rows=['文件：'+filename,'层级：'+record.view+(expected.includes(record.view)?'（符合本任务建议层级）':'（与本任务建议层级不同，请核对）'),'类型：'+(record.historical?'历史快照':'导出时现场'),'路径：'+(Array.isArray(record.path)?record.path.join(' → '):'未记录')];
+ const keys=record.view==='memorySystem'?['addr','data','lastRead','lastHit','memoryLastRead','memoryAccess']:record.view==='and'?['a','b']:['av','bv','enable'];
+ for(const key of keys)if(state[key]!==undefined)rows.push(key+' = '+JSON.stringify(state[key]));
+ rows.push('这只是报告附件的来源摘要，不验证作者、完整操作过程或理解正确性。');return rows.join('\n');
+}
+function parseObservationCSV(text){
+ text=String(text).replace(/^\uFEFF/,'');const rows=[];let row=[],cell='',quoted=false,closed=false;
+ const field=()=>{row.push(cell);cell='';closed=false;},line=()=>{field();if(row.some(v=>v!==''))rows.push(row);row=[];if(rows.length>2001)throw Error('观察记录超过2000行。');};
+ for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'){if(text[i+1]==='"'){cell+='"';i++;}else{quoted=false;closed=true;}}else cell+=c;continue;}
+  if(closed&&c!==','&&c!=='\r'&&c!=='\n')throw Error('CSV引号结束后出现了额外字符。');
+  if(c==='"'){if(cell)throw Error('CSV字段中出现未转义引号。');quoted=true;}
+  else if(c===',')field();else if(c==='\r'||c==='\n'){if(c==='\r'&&text[i+1]==='\n')i++;line();}else cell+=c;
+ }
+ if(quoted)throw Error('CSV引号未闭合。');if(cell||row.length||closed)line();return rows;
+}
+function observationEvidence(text,filename){
+ const parsed=parseObservationCSV(text);if(parsed.length<2)throw Error('CSV没有可查看的观察记录。');const header=parsed[0],names=['观察序号','教学操作次数','当前请求地址','最近已执行操作（非每行事件）','上次读取来源地址','上次实际读取字节','上次读取是否命中','当前候选是否命中'],indices=names.map(name=>header.indexOf(name)),view=header.indexOf('层级');
+ if(view<0||indices.some(i=>i<0))throw Error('缺少读取来源字段，请从新版存储层次页重新导出观察CSV。');
+ const rows=parsed.slice(1).map((row,i)=>{if(row.length!==header.length)throw Error('CSV第'+(i+2)+'行列数不一致。');if(row[view]!=='memorySystem')throw Error('这不是存储层次模块的观察CSV。');return indices.map(index=>row[index]);});const last=rows.at(-1);
+ return {headers:names,rows,summary:'文件：'+filename+'\n层级：memorySystem\n观察记录：'+rows.length+'行\n末行观察序号：'+last[0]+'；当前请求地址：'+last[2]+'\n上次读取来源：'+last[4]+'；读取字节：'+last[5]+'；当时命中：'+last[6]+'\n当前候选命中：'+last[7]+'\n“最近已执行操作”可在多行保持，不等于每行都执行了读写。摘要只核对记录来源，不是任务成绩。'};
+}
+let csvToken=0;document.querySelector('#observationCSV').onchange=async event=>{const token=++csvToken,file=event.target.files[0],status=document.querySelector('#csvStatus');if(!file)return;try{if(file.size>2*1024*1024)throw Error('本任务CSV请控制在2MiB以内。');const text=await file.text();if(token!==csvToken)return;const result=observationEvidence(text,file.name),table=document.createElement('table'),head=document.createElement('thead'),body=document.createElement('tbody'),headRow=document.createElement('tr');for(const name of result.headers){const cell=document.createElement('th');cell.scope='col';cell.textContent=name;headRow.append(cell);}head.append(headRow);for(const values of result.rows){const row=document.createElement('tr');for(const value of values){const cell=document.createElement('td');cell.textContent=value;row.append(cell);}body.append(row);}table.append(head,body);document.querySelector('#csvPreview').replaceChildren(table);document.querySelector('#csvEvidence').value=result.summary;save();status.textContent='已读取'+result.rows.length+'行。请对比请求地址与实际读取来源；原CSV仍需另附。';}catch(error){if(token===csvToken)status.textContent='未替换原记录：'+error.message;}};
+for(const input of document.querySelectorAll('[data-report-task]'))input.onchange=async()=>{const task=Number(input.dataset.reportTask),file=input.files[0],status=document.querySelector('#reportStatus'+task),token=String(Number(input.dataset.readToken||0)+1);input.dataset.readToken=token;if(!file)return;try{if(file.size>2*1024*1024)throw Error('本任务报告请控制在2MiB以内。');const text=await file.text();if(input.dataset.readToken!==token)return;const summary=reportEvidence(text,task,file.name);document.querySelector('#evidence'+task).value=summary;save();status.textContent='已读取来源摘要；原报告文件仍需另附，不代表本任务已判对。';}catch(error){if(input.dataset.readToken===token)status.textContent='未替换原摘要：'+error.message;}};
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('.print-value').forEach(n=>n.remove());for(const field of document.querySelectorAll('textarea')){const output=document.createElement('div');output.className='print-value';output.textContent=field.value||'（未填写）';field.after(output);}});window.addEventListener('afterprint',()=>document.querySelectorAll('.print-value').forEach(n=>n.remove()));
+document.querySelector('#printNotes').onclick=()=>window.print();
+function notes(){let text='# GBU-CS301 缓存课堂任务记录\n\n实验编号：'+document.querySelector('#runLabel').value+'\n导出时间：'+new Date().toISOString()+'\n\n';for(let i=1;i<=3;i++){text+='## 任务 '+i+'\n\n';for(const [prefix,label]of [['prediction','预测'],['observation','实际观察'],['explanation','解释'],['evidence','报告来源摘要']])text+='### '+label+'\n\n'+(document.querySelector('#'+prefix+i).value||'（未填写）')+'\n\n';text+='自述已保存证据：'+(document.querySelector('#done'+i).checked?'是':'否')+'\n\n';}text+='## 任务1观察CSV来源摘要\n\n'+(document.querySelector('#csvEvidence').value||'（未导入）')+'\n\n';return text+'本记录由学习者填写，不是自动验证成绩；实验报告和观察CSV需另附。\n';}
+document.querySelector('#exportNotes').onclick=()=>{save();const url=URL.createObjectURL(new Blob([notes()],{type:'text/markdown;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='GBU-CS301_缓存课堂任务记录.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);document.querySelector('#exportStatus').textContent='已生成任务记录；请同时附上实验报告与任务1的观察CSV。';};
+</script></body></html>

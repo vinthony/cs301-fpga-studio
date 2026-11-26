@@ -1,0 +1,22 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab13-single-cycle-cpu/project
+[info] loading settings for project lab13-single-cycle-cpu from build.sbt...
+[info] set current project to lab13-single-cycle-cpu (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab13-single-cycle-cpu/)
+[info] compiling 5 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab13-single-cycle-cpu/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab13-single-cycle-cpu/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] SingleCycleCPUSpec:
+[info] SingleCycleCPU
+[info] - should execute a loop with store load and precise breakpoint
+[info] - should extend byte halfword loads and retain little endian boundary bytes
+[info] - should read external pins and commit teaching MMIO outputs
+[info] - should stop faulting stores before any architectural write
+[info] Run completed in 10 seconds, 866 milliseconds.
+[info] Total number of tests run: 4
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 4, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 14 s, completed Nov 24, 2026, 5:01:03 AM
+[info] running cs301.EmitSingleCycle 
+[success] Total time: 1 s, completed Nov 24, 2026, 5:01:05 AM

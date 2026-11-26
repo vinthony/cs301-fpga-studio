@@ -1,0 +1,11 @@
+const fs=require('fs'),vm=require('vm'),path=require('path'),crypto=require('crypto');
+if(!process.argv[2])throw Error('Pass the absolute teaching application directory');
+const base=path.resolve(process.argv[2]),ctx=vm.createContext({});
+const files=['architecture.js','anatomy-catalog.js','anatomy-model.js','anatomy-experiments.js'];
+for(const file of files)vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),ctx);
+ctx.rows=fs.readFileSync('evidence/rtl.csv','utf8').trim().split('\n').slice(1).map(line=>line.split(',').map(Number));
+const result=vm.runInContext(`(()=>{let checks=0;const eq=(a,b,name)=>{if(a!==b)throw Error(name+': '+a+' != '+b);checks++};for(const [a,b,valid,diff,same,low,middle,four,equal,hit]of rows){const s=anatomyState();Object.assign(s,{av:a,bv:b,enable:valid});const e=anatomyEvaluate('tageq5',s),h=anatomyEvaluate('cachecheck',s);for(let i=0;i<5;i++){eq(e.nets['请求位'+i],(a>>>i)&1,'request bit');eq(e.nets['保存位'+i],(b>>>i)&1,'saved bit');eq(e.nets['不同位'+i],(diff>>>i)&1,'XOR');eq(e.nets['相同位'+i],(same>>>i)&1,'NOT');}eq(e.nets['低两位相等'],low,'E01');eq(e.nets['中两位相等'],middle,'E23');eq(e.nets['低四位相等'],four,'E03');eq(e.nets['五位相等'],equal,'E04');eq(e.result,equal,'EQ result');eq(h.nets['标签相等'],equal,'parent equality');eq(h.nets['行有效'],valid,'valid');eq(h.nets['命中结果'],hit,'hit wire');eq(h.result,hit,'HIT result');}return {status:'passed',cases:rows.length,checks}})()`,ctx);
+const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+result.appHashes=Object.fromEntries(files.map(f=>[f,hash(path.join(base,f))]));
+result.rtlSHA256=hash('rtl/CacheTagHit.v');result.traceSHA256=hash('evidence/rtl.csv');
+fs.writeFileSync('evidence/web-check.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

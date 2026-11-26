@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "cases": 20641,
+  "checks": 41282,
+  "adapter": "step=0 no web edge; clear/reset web reset",
+  "reference": "same independent Python vectors used for generated RTL"
+}

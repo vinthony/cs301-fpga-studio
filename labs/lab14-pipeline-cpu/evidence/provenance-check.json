@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "file": "src/main/scala/PipelineCPU.scala",
+      "rejected": true
+    },
+    {
+      "file": "generated/PipelineCPU.v",
+      "rejected": true
+    }
+  ],
+  "restoredOriginalBytes": true
+}

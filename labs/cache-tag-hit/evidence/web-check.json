@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "cases": 2048,
+  "checks": 59392,
+  "appHashes": {
+    "architecture.js": "79458796e3be5613e15937bcde27d95ae33c3c60ad8f5893d3fc2ee804aeec23",
+    "anatomy-catalog.js": "12df536a4bfc3f73b4d5c8544b509119a94123bf8c8c168424446e44ffa35a68",
+    "anatomy-model.js": "a25ce716e3ee59ec3c2f50cd2dab3aba9e55050b198d29b7e715e7261577ba65",
+    "anatomy-experiments.js": "4e1a722271fc0fccb9cea21fdd0f1bd9e842a11ead0c52a1ef24d1442f607ed4"
+  },
+  "rtlSHA256": "d5162208f3da817c60687115e507961ee12aff8ce95de6a4a805a2935ea5344c",
+  "traceSHA256": "d77cb9ed300da072852e5838dce5441a8c9fb9cb2679b963fd5d96c92f2d0ba9"
+}

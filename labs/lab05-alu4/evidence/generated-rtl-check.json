@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "vectors": 4096,
+  "supported_operations": 10,
+  "invalid_opcodes": 6,
+  "clock_edges": 0,
+  "simulator": "Icarus Verilog",
+  "oracle": "independent Python integer and signed arithmetic",
+  "output": "PASS 4096 vectors: all four-bit operands and opcodes, result and flags, no clocks\n<LOCAL_HOME>/Documents/ChatGPT/CS301 - \u8ba1\u7b97\u673a\u7cfb\u7edf\u8bbe\u8ba1/outputs/\u82af\u7247\u7ec6\u80de\u5b9e\u9a8c\u5ba4/labs/lab05-alu4/verification/out/tb.sv:11: $finish called at 4096 (1s)\n"
+}

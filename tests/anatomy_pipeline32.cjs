@@ -1,0 +1,15 @@
+const fs=require('fs'),vm=require('vm'),cp=require('child_process'),path=require('path'),base=path.resolve(__dirname,'..'),lab=path.join(base,'labs/lab13-single-cycle-cpu');
+if(!fs.existsSync(path.join(lab,'out/cases.json')))cp.execFileSync('python3',[path.join(lab,'verification/check_generated.py')]);
+const cases=JSON.parse(fs.readFileSync(path.join(lab,'out/cases.json'),'utf8')),c=vm.createContext({});
+for(const f of ['architecture.js','anatomy-catalog.js','anatomy-model.js','anatomy-experiments.js','anatomy-context.js','anatomy-learning.js','anatomy-rv32.js','anatomy-regfile32.js','anatomy-immediate32.js','anatomy-decoder32.js','anatomy-cpu32.js','anatomy-pipeline32.js'])vm.runInContext(fs.readFileSync(path.join(base,f),'utf8'),c);
+c.extraSources=['addi x2,x0,7\nlw x1,256(x0)\nsw x2,0(x0)\naddi x3,x0,99\nebreak','addi x2,x0,7\njal x1,2\nsw x2,0(x0)\nebreak','addi x1,x0,5\nadd x2,x1,x1\nadd x3,x2,x1\nsw x3,0(x0)\nlw x4,0(x0)\nadd x5,x4,x3\nebreak'];
+const extra=JSON.parse(vm.runInContext(`JSON.stringify(extraSources.map((source,i)=>({name:'pipeline directed '+i,words:anatomyAssembleCPU32(source).words,steps:200,switches:0x35,buttons:21})))`,c));cases.push(...extra);
+const expected=JSON.parse(cp.execFileSync('python3',[path.join(lab,'verification/reference/rv32_interpreter.py')],{input:JSON.stringify(cases),encoding:'utf8',maxBuffer:32*1024*1024}));let checks=0,cycles=0;
+for(const mode of ['forward','stall'])for(let i=0;i<cases.length;i++){
+ c.item=cases[i];c.mode=mode;
+ const actual=JSON.parse(vm.runInContext(`(()=>{const p=anatomyPipeline32State({words:item.words,sourceLines:[],sourceText:'.word'},mode);let ticks=0;while(!p.halted&&ticks<10000){anatomyPipeline32Tick(p,{switches:item.switches,buttons:item.buttons});ticks++}if(!p.halted)throw Error('did not halt '+item.name);return JSON.stringify({snapshot:{pc:p.pc,regs:p.regs,memory:p.memory,retired:p.retired,halted:p.halted,fault:p.fault?.kind||null,led:p.led,display:p.display,faultValue:p.fault?.value||0},cycles:ticks})})()`,c));
+ const final=expected[i].at(-1);if(JSON.stringify(actual.snapshot)!==JSON.stringify(final))throw Error('pipeline mismatch '+mode+' '+cases[i].name+'\n'+JSON.stringify(actual.snapshot)+'\n'+JSON.stringify(final));checks++;cycles+=actual.cycles;
+}
+const experiment=JSON.parse(vm.runInContext(`(()=>{const source=extraSources[2],program=anatomyAssembleCPU32(source),rows=[];for(const mode of ['none','forward','stall']){const p=anatomyPipeline32State(program,mode);for(let i=0;i<100&&!p.halted;i++)anatomyPipeline32Tick(p);rows.push({mode,result:p.regs[5],cycles:p.cycles,stalls:p.stalls})}return JSON.stringify(rows)})()`,c));
+if(experiment[0].result===30||experiment[1].result!==30||experiment[2].result!==30||experiment[1].stalls<1||experiment[2].cycles<=experiment[1].cycles)throw Error('hazard experiment '+JSON.stringify(experiment));checks+=5;
+console.log(JSON.stringify({status:'passed',programs:cases.length,modes:2,cycles,checks,experiment,scope:'Final architectural state against independent interpreter; stage timing additionally checked by directed hazard experiment'}));

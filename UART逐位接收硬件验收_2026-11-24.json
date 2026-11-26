@@ -1,0 +1,28 @@
+{
+  "artifact": "labs/uart-bit-rx.zip",
+  "bytes": 62001,
+  "sha256": "8801b4aed44f90344bde983b4e766195eb12bd128c4b357e21bbf66656549bde",
+  "chiselTests": 2,
+  "rtl": {
+    "status": "passed",
+    "postEdgeSnapshots": 18209,
+    "preEdgeSnapshots": 18208,
+    "packedBits": 15,
+    "coverage": "10 phases x 16 controls, all 256 bytes with both stop levels, 10000 random controls",
+    "reference": "independent Python sampled-bit list",
+    "stdout": "PASS 18209 edges\ntb.v:16: $finish called at 182090 (1s)"
+  },
+  "web": {
+    "cases": 18209,
+    "checks": 36418,
+    "scope": "data,phase,busy,valid,error; step/clear adapter"
+  },
+  "unpackedReview": "work/uart-rx-review-v76bnu1p/uart-bit-rx",
+  "unpackedTestExportRTLCheck": "passed",
+  "download": {
+    "http": 200,
+    "bytes": 62001,
+    "sha256Matched": true
+  },
+  "boundary": "external ideal bit sampling; no input synchronization, baud clock, oversampling or physical constraints"
+}

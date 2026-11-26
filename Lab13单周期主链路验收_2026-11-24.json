@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-24",
+  "package": "labs/lab13-single-cycle-cpu.zip",
+  "bytes": 96004,
+  "sha256": "b14f3ea6c343a505771172ebbc50bf86aa1237ef68e624538b60d04d474d3685",
+  "sourceChiselTests": 4,
+  "extractedPackageChiselTests": 4,
+  "actualGeneratedRTL": {
+    "status": "passed",
+    "reference": "independent Python RV32I interpreter with precise teaching EEI",
+    "programs": 199,
+    "postEdgeSnapshots": 3504,
+    "preEdgeHoldSnapshots": 3503,
+    "snapshotBits": 3221,
+    "fullRegisters": 32,
+    "fullRAMBytes": 256,
+    "faultReasonsCovered": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "stdout": "PASS 3504 edges\ntb.v:304: $finish called at 35040 (1s)"
+  },
+  "webCrossModel": {
+    "programs": 199,
+    "steps": 2119,
+    "status": "passed"
+  },
+  "teachingDeliverables": [
+    "SingleCycleCPU.scala",
+    "generated/SingleCycleCPU.v",
+    "数据通路.svg",
+    "数据通路说明.md",
+    "控制信号表.csv",
+    "evidence/loop-store-load.vcd",
+    "evidence/chiseltest-and-generation.log"
+  ],
+  "physicalValidation": false,
+  "remaining": [
+    "流水线CPU硬件工程",
+    "统一SoC与完整总线接口",
+    "STA/实体FPGA验证",
+    "学生使用效果验证"
+  ]
+}

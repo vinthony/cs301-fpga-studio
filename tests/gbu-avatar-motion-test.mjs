@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const source=fs.readFileSync(new URL('../gbu-game/avatar-motion.js',import.meta.url),'utf8');
+const {avatarPose,screenToWorld}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+const pose=(dx,dz,rx,rz,bx,bz,w=0)=>avatarPose(dx,dz,rx,rz,bx,bz,w);
+assert.equal(pose(1,0,1,0,0,0.7).facing,2);
+assert.equal(pose(-1,0,1,0,0,0.7).facing,1);
+assert.equal(pose(0,1,1,0,0,0.7).facing,0);
+assert.equal(pose(0,-1,1,0,0,0.7).facing,3);
+assert.equal(pose(1,0,0,-1,0.7,0).facing,0,'rotated camera: toward viewer');
+assert.equal(pose(0,-1,0,-1,0.7,0).facing,2,'rotated camera: screen right');
+assert.deepEqual([0,2,4,6,8].map(w=>pose(1,0,1,0,0,1,w).frame),[0,1,2,3,0]);
+assert.deepEqual(screenToWorld(1,0,1,0,0,.7),{x:1,z:0});
+assert.deepEqual(screenToWorld(0,-1,1,0,0,.7),{x:0,z:-1});
+assert.deepEqual(screenToWorld(1,0,0,-1,.7,0),{x:0,z:-1});
+assert.equal(screenToWorld(0,-1,0,-1,.7,0).x,-1);assert.ok(Math.abs(screenToWorld(0,-1,0,-1,.7,0).z)<1e-10);
+console.log('PASS: camera-relative movement, four poses, walking frames');

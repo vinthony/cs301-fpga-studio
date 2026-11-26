@@ -1,0 +1,12 @@
+{
+  "README.md": "ea1470dec66806a935d7b1d9de68394e12dd8dc5efb0e2fbbc3c6286814a5ca0",
+  "evidence/rtl-check.json": "a3305f628f9d375d51f94727f5da0379d21443c50d7055642cf38f4f2c560c92",
+  "evidence/scan-trace.csv": "cab4b16d25d9d3080b13b451d217920522c5d7d35794dbd6b57bbdbfa90a1a91",
+  "evidence/scan.vcd": "43937b24cf7103455ff0e5d780bbbcbc64d8a23e8bbcb4726b920f0307d4fcf4",
+  "evidence/web-check.json": "4473f5308a9461b4d8d2fce377f5ade6cb34c73c81d6cd6cb561e7a71bc4ed81",
+  "rtl/DotSelect.v": "fd79fe95ae8e8b0b899ce4d8e7596fc1e379614450656cdd752028b1e2182000",
+  "rtl/SevenSegmentScanDots.v": "692c5f953cc9310f793f8447aaffbb48aac03dfb46236eb14552eaa2c8e7ce40",
+  "run.sh": "3ea392a1dd522e098e8c28b7bcf79b3f3bebd1792deffeb789c13019b6f48cba",
+  "verification/compare_web.cjs": "3cec855853b0d5265d676a7ddf3323d6f1eecb6f8cf6ddf22a26de2aaa1eeb8e",
+  "verification/tb.sv": "312081cb6c7b58db089ef0e0cbc83e09b2c355dc34582c83d02422b4d85b3a64"
+}

@@ -1,0 +1,11 @@
+async()=>{
+ const wait=ms=>new Promise(r=>setTimeout(r,ms));let checks=0;const ok=(v,n)=>{if(!v)throw Error(n);checks++};
+ document.querySelector('.anatomy-dialog[open] [data-an-close]')?.click();openArchitecture('scan');await wait(100);let d=document.querySelector('.anatomy-dialog[open]');
+ d.querySelector('[data-tick]').click();ok(d.querySelector('[data-scan-an]').textContent==='1111','manual stage rerenders lens immediately');
+ d.querySelector('[data-lab-reset]').click();const initial=d.querySelector('[data-scan-an]').textContent;d.querySelector('[data-scan-play]').click();ok(d.querySelector('[data-scan-play]').getAttribute('aria-pressed')==='true','play state');await wait(6500);ok(d.querySelector('[data-scan-play-status]').textContent.includes('12阶段完成'),'bounded frame ends');ok(d.querySelector('[data-scan-play]').getAttribute('aria-pressed')==='false','auto stop');ok(d.querySelector('[data-scan-an]').textContent===initial,'full frame returns to initial selected digit');ok(+d.querySelector('[data-observation-range]').max===12,'twelve real observations');
+ d.querySelector('[data-scan-play]').click();await wait(600);d.querySelector('[data-scan-play]').click();const paused=d.querySelector('[data-observation-range]').max;await wait(650);ok(d.querySelector('[data-observation-range]').max===paused,'pause freezes actual steps');
+ d.querySelector('[data-scan-play]').click();d.querySelector('[data-observation-prev]').click();await wait(650);ok(d.querySelector('[data-scan-play]').getAttribute('aria-pressed')==='false','history stops scan');d.querySelector('[data-observation-live]').click();const live=d.querySelector('[data-observation-range]').max;await wait(600);ok(d.querySelector('[data-observation-range]').max===live,'return live does not resume');
+ d.querySelector('[data-scan-play]').click();d.querySelector('[data-tick]').click();ok(d.querySelector('[data-scan-play]').getAttribute('aria-pressed')==='false','manual step stops autoplay');
+ d.querySelector('[data-scan-play]').click();d.querySelector('[data-an-close]').click();await wait(650);ok(!document.querySelector('.anatomy-dialog[open]'),'close cleans up');openArchitecture('scan');await wait(100);d=document.querySelector('.anatomy-dialog[open]');ok(d.querySelector('[data-scan-play]').getAttribute('aria-pressed')==='false','reopen idle');
+ return {status:'passed',checks};
+}

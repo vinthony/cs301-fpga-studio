@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "shape": {
+    "rows": 32,
+    "bitsPerRow": 32,
+    "visibleSavedBits": 1024,
+    "interactiveWriteBits": 32
+  },
+  "HDLInputs": 288,
+  "HDLSnapshots": 576,
+  "comparedValues": 19584,
+  "modelChecks": 6346,
+  "browserChecks": 27,
+  "operandTransferChecks": 12,
+  "allViewInteraction": {
+    "views": 102,
+    "checks": 618
+  },
+  "allViewReplay": {
+    "views": 102,
+    "checks": 612
+  },
+  "layout": {
+    "internalViews": 101,
+    "issues": 0
+  },
+  "predictions": {
+    "cases": 8,
+    "checks": 53
+  },
+  "goalStatus": "active",
+  "limits": [
+    "Teaching implementation: asynchronous read, rising-edge write, optional bypass, synchronous clear",
+    "Explicit operand copies between independent experiments, not a complete CPU",
+    "No measured student understanding or world-wide comparison"
+  ]
+}

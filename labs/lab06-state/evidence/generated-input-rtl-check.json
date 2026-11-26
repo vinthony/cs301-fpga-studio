@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "reference": "independent Python finite-state sampler",
+  "exhaustiveRawPatterns": 4096,
+  "bitsPerPattern": 12,
+  "randomControls": 4096,
+  "postEdgeSnapshots": 73729,
+  "preEdgeHoldSnapshots": 73728,
+  "outputsComparedPerSnapshot": 7,
+  "rtl": "generated/InputConditioner.v",
+  "counter": "32-bit saturating; near-maximum counter boundary tested in Chisel with 2-bit parameter",
+  "stdout": "PASS 73729 edges 73728 held-before-edge\ntb.v:16: $finish called at 737290 (1s)"
+}

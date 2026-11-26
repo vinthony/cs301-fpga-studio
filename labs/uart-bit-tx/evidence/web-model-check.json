@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "cases": 14817,
+  "checks": 29634,
+  "scope": "captured byte,phase,TX,busy only; send/step/clear adapter; accepted/done excluded"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "frames": 240,
+  "checks": 1920,
+  "traceSHA256": "11030475eb643c70246c41d7f9023b805ee3ab9cb7bf50d58deb134a1998d8e4",
+  "rtlSHA256": "4d576def3a764df7dc778ac02d2a6026260c56c4c20ca066b1967bf7d769dacc",
+  "appHashes": {
+    "architecture.js": "79458796e3be5613e15937bcde27d95ae33c3c60ad8f5893d3fc2ee804aeec23",
+    "anatomy-catalog.js": "8819cb4e69b848471901dc15aa85c3e8077fd8f9efa17695d624e90997b50ce4",
+    "anatomy-model.js": "278ecd44a76a87d0c3defbd8f6d8798e3b7d4a0761e0b9da672fbcb8a63a457d",
+    "anatomy-experiments.js": "20861d3167239c45b57c952505263b1c116ff4e8a3d747e27f94e017d835c030"
+  }
+}

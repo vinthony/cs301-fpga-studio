@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "recognizedInstructionNames": 40,
+  "opcodeFunctCombinations": 131072,
+  "HDLVectors": 131122,
+  "modelChecks": 131180,
+  "browserChecks": 112,
+  "allViewInteraction": {
+    "views": 104,
+    "checks": 630
+  },
+  "allViewReplay": {
+    "views": 104,
+    "checks": 624
+  },
+  "internalLayout": {
+    "views": 103,
+    "issues": 0
+  },
+  "predictionCases": 10,
+  "predictionChecks": 65,
+  "layoutShellChecks": 31,
+  "referenceRTLAccessible": true,
+  "goalStatus": "active",
+  "limits": [
+    "Only base RV32I recognition, not extension decoding",
+    "Control requests are not executed instructions",
+    "16-bit control summary excludes separate ALU, unsigned-load and branch signals",
+    "No full-CPU, physical-timing or student-effectiveness claim"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "freshArchiveExtraction": true,
+  "packagedRTLVerifiedBeforeRebuild": true,
+  "sourceRecompiled": true,
+  "scalaTests": 6,
+  "generatedRTLByteIdenticalAfterRebuild": true,
+  "independentPrograms": 205,
+  "hazardModes": [
+    "stall",
+    "forward"
+  ],
+  "webCycleEdges": 7304,
+  "archiveExcludes": [
+    "target",
+    "test_run_dir",
+    "out",
+    ".tools"
+  ],
+  "logSHA256": "0bf13c541eb90e7ec8f8f847b07897b1a5ddb91e4b37c6a2f22dab593fd6ce03"
+}

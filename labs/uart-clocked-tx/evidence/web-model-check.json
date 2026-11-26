@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "groups": 7,
+  "checks": 134176,
+  "compared": "counter,captured byte,phase,TX,busy",
+  "adapter": "disabled main-clock enables map to no web advance; accepted/done/tick and paused wall-clock time excluded"
+}

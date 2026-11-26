@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-24",
+  "views": 132,
+  "viewportChecks": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "checks": 1053,
+      "issues": []
+    },
+    {
+      "width": 1366,
+      "height": 900,
+      "checks": 1053,
+      "issues": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "checks": 1053,
+      "issues": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "checks": 1053,
+      "issues": []
+    }
+  ],
+  "internalLayouts": {
+    "views": 131,
+    "states": 393,
+    "cases": [
+      "default",
+      "numeric-min-and-toggles-off",
+      "numeric-max-and-toggles-on"
+    ],
+    "issues": [],
+    "bounds": "SVG relative coordinates including nested transforms"
+  },
+  "functionalRegression": {
+    "checks": 2779,
+    "nets": 1010,
+    "status": "passed"
+  },
+  "scope": "Automated sampled-state layout checks plus manual CPU view inspection. Does not exhaust every possible runtime text or browser/font combination."
+}

@@ -1,0 +1,18 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab12-arithmetic-cpu/project
+[info] loading settings for project lab12-arithmetic-cpu from build.sbt...
+[info] set current project to lab12-arithmetic-cpu (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab12-arithmetic-cpu/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab12-arithmetic-cpu/target/scala-2.13/classes ...
+[info] done compiling
+[info] ArithmeticCPUSpec:
+[info] ArithmeticCPU
+[info] - should retire arithmetic programs at edges pause and stop without committing faults
+[info] - should reject missing fetches and discard x0 writes while retiring legal instructions
+[info] Run completed in 1 second, 111 milliseconds.
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 4:20:17 AM
+[info] running cs301.EmitArithmeticCPU 
+[success] Total time: 1 s, completed Nov 24, 2026, 4:20:18 AM

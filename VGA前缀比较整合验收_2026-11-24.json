@@ -1,0 +1,91 @@
+{
+  "zipBytes": 126063,
+  "zipSHA256": "5f3b661a3eda0f9e4a5006962e7caa450986ac19f9c9ab1e04c8e789da39658a",
+  "files": 14,
+  "review": "<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/vga-prefix-review-2ymfzl6r/vga-prefix-timing",
+  "verification": {
+    "status": "passed",
+    "coordinateControlCases": 1667200,
+    "colorCases": 16384,
+    "trajectoryEdges": 853601,
+    "totalEdges": 2537185,
+    "preChecksPerVector": 17,
+    "postChecksPerVector": 2,
+    "sampleEdges": 2501,
+    "vectorSHA256": "f01bb04ba758dccbf1354504fc09cf542f364fc835442e03fbd4bd197e40b083",
+    "rtlSHA256": {
+      "RasterCounter.v": "574fab9a63295b3c9ffddddb9ec9ed2ea047ce4441a9227c91b7745be2d4c282",
+      "Compare10.v": "4d1d0bcf86c0d724fd098d8dc250aaad6b18fb7b3079a79826331cc5d5546f46",
+      "VGAPrefixTiming.v": "cf9f2cadb0a29436b643c22d3e2932095257ed3a7bc3f2254479e352505c3b42"
+    },
+    "mode": {
+      "visible": [
+        640,
+        480
+      ],
+      "total": [
+        800,
+        521
+      ],
+      "hsLow": [
+        656,
+        752
+      ],
+      "vsLow": [
+        490,
+        492
+      ]
+    },
+    "boundary": "Exhaustive phase injects valid initial coordinates. Continuous phase uses prior state. Uniform combinational RGB only; no framebuffer/PLL/XDC/STA/physical monitor verification."
+  },
+  "web": {
+    "status": "passed",
+    "requestVectors": 2537185,
+    "realWebAdvanceEdges": 1703421,
+    "resetInitializations": 833764,
+    "requestChecksPerVector": 14,
+    "boundary": "Hardware reset not compared to a nonexistent web reset port. Reset vectors initialize the following source coordinate."
+  },
+  "unpackedRecheck": {
+    "status": "passed",
+    "coordinateControlCases": 1667200,
+    "colorCases": 16384,
+    "trajectoryEdges": 853601,
+    "totalEdges": 2537185,
+    "preChecksPerVector": 17,
+    "postChecksPerVector": 2,
+    "sampleEdges": 2501,
+    "vectorSHA256": "f01bb04ba758dccbf1354504fc09cf542f364fc835442e03fbd4bd197e40b083",
+    "rtlSHA256": {
+      "RasterCounter.v": "574fab9a63295b3c9ffddddb9ec9ed2ea047ce4441a9227c91b7745be2d4c282",
+      "Compare10.v": "4d1d0bcf86c0d724fd098d8dc250aaad6b18fb7b3079a79826331cc5d5546f46",
+      "VGAPrefixTiming.v": "cf9f2cadb0a29436b643c22d3e2932095257ed3a7bc3f2254479e352505c3b42"
+    },
+    "mode": {
+      "visible": [
+        640,
+        480
+      ],
+      "total": [
+        800,
+        521
+      ],
+      "hsLow": [
+        656,
+        752
+      ],
+      "vsLow": [
+        490,
+        492
+      ]
+    },
+    "boundary": "Exhaustive phase injects valid initial coordinates. Continuous phase uses prior state. Uniform combinational RGB only; no framebuffer/PLL/XDC/STA/physical monitor verification."
+  },
+  "browserDownloadVerified": true,
+  "browserChecks": 21,
+  "existingVGARegression": {
+    "views": 5,
+    "checks": 335
+  },
+  "scope": "共同像素时钟计数及六套前缀比较的纯色VGA功能参考；网页复位向量仅初始化，不冒充同步reset口。无帧缓冲、PLL、XDC、STA或实体显示器证明。"
+}

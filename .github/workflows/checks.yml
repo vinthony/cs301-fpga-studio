@@ -1,0 +1,19 @@
+name: Core checks
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: sudo apt-get update && sudo apt-get install -y iverilog
+      - run: python3 tests/test_system.py
+      - run: python3 tests/launcher_check.py
+      - run: node tests/anatomy_content.cjs
+      - run: node tests/anatomy_models.cjs
+      - run: node tests/anatomy_rtl.cjs

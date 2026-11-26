@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "postEdgeSnapshots": 110965,
+  "preEdgeSnapshots": 110964,
+  "packedBits": 27,
+  "divisor": 868,
+  "coverage": "7 directed byte frames, held requests over multiple frames, all 16 terminal-control combinations, pauses and 10000 random clocks",
+  "reference": "independent Python count and encoded-frame list",
+  "stdout": "PASS 110965 primary clock edges\ntb.v:16: $finish called at 1109650 (1s)"
+}

@@ -1,0 +1,26 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 11 3757k   11  423k    0     0   280k      0  0:00:13  0:00:01  0:00:12  280k
+100 3757k  100 3757k    0     0  1651k      0  0:00:02  0:00:02 --:--:-- 1652k
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab03-logic/project
+[info] loading settings for project lab03-logic from build.sbt...
+[info] set current project to lab03-logic (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab03-logic/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab03-logic/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab03-logic/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] LogicSpec:
+[info] LogicTop
+[info] - should exhaust all inputs and check gate tables selection and comparison
+[info] Run completed in 668 milliseconds.
+[info] Total number of tests run: 1
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 3:56:17 AM
+[info] running cs301.EmitLogic 
+[success] Total time: 1 s, completed Nov 24, 2026, 3:56:18 AM

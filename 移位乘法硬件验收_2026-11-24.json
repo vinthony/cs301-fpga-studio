@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "package": {
+    "bytes": 37211,
+    "files": 13,
+    "sha256": "39c66d0b0287b71e140f3f8812bc1d841e14d0e7e46367bd42b84bf0874b1778",
+    "review": "<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/multiply4-review-632ecfe3/shift-multiply4"
+  },
+  "chiselTests": 2,
+  "rtl": {
+    "status": "passed",
+    "postEdgeSnapshots": 23249,
+    "preEdgeSnapshots": 23248,
+    "packedBits": 26,
+    "products": 256,
+    "coverage": "all products with paused inputs and done hold; 6 saved stages x 16 priority controls; 20000 random controls",
+    "reference": "closed-form a*(b mod 2^k), a*2^k and floor(b/2^k)",
+    "stdout": "PASS 23249 edges\ntb.v:16: $finish called at 232490 (1s)"
+  },
+  "web": {
+    "status": "passed",
+    "checks": 46497,
+    "edges": 23249,
+    "scope": "same independent 26-bit saved/combinational snapshots as generated RTL; paused primary clock is no web step"
+  },
+  "extractedReview": {
+    "chiselTests": 2,
+    "rtl": {
+      "status": "passed",
+      "postEdgeSnapshots": 23249,
+      "preEdgeSnapshots": 23248,
+      "packedBits": 26,
+      "products": 256,
+      "coverage": "all products with paused inputs and done hold; 6 saved stages x 16 priority controls; 20000 random controls",
+      "reference": "closed-form a*(b mod 2^k), a*2^k and floor(b/2^k)",
+      "stdout": "PASS 23249 edges\ntb.v:16: $finish called at 232490 (1s)"
+    }
+  },
+  "browserDownloadMatched": true,
+  "boundaries": [
+    "four-bit unsigned operands only",
+    "four synchronous rounds, not DSP physical array",
+    "no CPU M extension, board constraints, STA or resource/Fmax verification"
+  ]
+}

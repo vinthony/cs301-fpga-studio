@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "cases": [
+    "cpu32",
+    "decoder32",
+    "immgen32",
+    "regfile32",
+    "alu32",
+    "adder",
+    "fulladder",
+    "dff",
+    "register",
+    "latch",
+    "mux"
+  ],
+  "browserChecks": 71,
+  "modelChecks": 1622,
+  "learningAndContextChecks": 2137,
+  "goalStatus": "active",
+  "limitations": [
+    "Only eleven dedicated prediction cases",
+    "No measured student learning effectiveness",
+    "Functional educational model, not physical FPGA timing"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "programs": 205,
+  "programRuns": 410,
+  "hazardModes": [
+    "stall",
+    "forward"
+  ],
+  "activeEdges": 7304,
+  "compared": [
+    "all registers",
+    "all RAM bytes",
+    "MMIO",
+    "architectural PC",
+    "fetch PC",
+    "retirement",
+    "fault and value",
+    "four pipeline packet valid/PC pairs",
+    "pending trap",
+    "stall/redirect counters",
+    "EX operand forwarding"
+  ],
+  "scope": "generated RTL active edges versus current page model; separate Python interpreter check covers architectural outcomes; not physical FPGA timing"
+}

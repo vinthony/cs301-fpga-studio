@@ -1,0 +1,659 @@
+{
+  "date": "2026-11-24",
+  "scope": "变化解释、只读历史重放、观察序号波形、CSV导出、段译码独立输入输出、默认位置路径修正",
+  "unitChecks": 1538,
+  "snapshotReplayAcrossViews": {
+    "passed": 600,
+    "views": 100,
+    "rows": [
+      {
+        "id": "fulladder",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "halfadder",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "mux",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "xor",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "and",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "or",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "not",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "cmos",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "nand",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "nor",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "nmos",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "pmos",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "adder",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "cpu",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "alu",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "board",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "fpgaFabric",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "packageView",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "clb",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "slice",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "lut",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "carry4",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "iobank",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "dsp",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "register",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "dff",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "latch",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "masterSlave",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "sramcell",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "synchronizer",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "input",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "debounce",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "edge",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "scancounter",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "clocking",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "reset",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "sram",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "bram",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "pc",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "regfile",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "decoder",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "subtract",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "logic",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "shifter",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "compare",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "fsm",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "instruction",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "immediate",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "control",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "loadstore",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "pipeline",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "forward",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "hazard",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "branch",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "scan",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "segmentdecode",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "blanking",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "leddriver",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "uartcore",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "baud",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "tx",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "rx",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "shiftreg",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "vgacore",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "pixelcounter",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "videotiming",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "framebuffer",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "gpiocore",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "adccore",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "quantizer",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "filter",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "memorySystem",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "cache",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "tag",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "cachefsm",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "dram",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "dramcell",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "flash",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "config",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "usbcore",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "usbtransport",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "hidparser",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "routing",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "wires",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "switches",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "buttons",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "clock",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "leds",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "sevenseg",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "programming",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "uart",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "usbhost",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "vga",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "pmod",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "xadc",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "power",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "io",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "system",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "ledjunction",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      },
+      {
+        "id": "regulator",
+        "replay": true,
+        "readOnly": true,
+        "liveUnchanged": true
+      }
+    ]
+  },
+  "statefulReplayCases": {
+    "passed": 33
+  },
+  "regressions": {
+    "interactiveViews": 100,
+    "browserInteractions": 606,
+    "anatomy": 711,
+    "originalComponentLearning": 68,
+    "baseModels": 1622,
+    "experimentModels": 2135,
+    "contentCases": 644,
+    "gateRTL": 88
+  },
+  "layout": {
+    "views": 99,
+    "issues": 0
+  },
+  "export": {
+    "uiHook": true,
+    "bom": [
+      239,
+      187,
+      191
+    ],
+    "pcSamples": [
+      0,
+      4
+    ],
+    "csvRowsIncludingHeader": 3
+  },
+  "mobile": {
+    "viewportWidth": 500,
+    "reducedMotion": true,
+    "retainedObservations": 24,
+    "waveWidth": 1056,
+    "scrollClientWidth": 364,
+    "latestColumnVisible": true,
+    "dialogHorizontalOverflow": false
+  },
+  "pedagogyBoundary": "导览是已计算完成状态的分组观察，不添加虚构的传播时延或中间电气状态。历史只读；返回当前不推进时钟、不写入存储。",
+  "goalStatus": "active",
+  "unverified": [
+    "学生实际理解效果",
+    "与全球同类教学工具的系统比较",
+    "与15讲讲义的逐节映射",
+    "全部层级的专属预测题与误区反馈",
+    "完整实体FPGA时序、电气及协议等价性"
+  ]
+}

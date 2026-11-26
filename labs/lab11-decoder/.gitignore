@@ -1,0 +1,5 @@
+.tools/
+target/
+project/target/
+test_run_dir/
+verification/out/

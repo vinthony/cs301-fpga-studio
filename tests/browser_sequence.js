@@ -1,0 +1,9 @@
+async()=>{
+ const wait=ms=>new Promise(r=>setTimeout(r,ms)),checks=[],ok=(v,n)=>{if(!v)throw Error(n);checks.push(n)};
+ document.querySelector('.anatomy-dialog[open] [data-an-close]')?.click();openArchitecture('seq1011');await wait(250);const d=document.querySelector('.anatomy-dialog[open]');
+ ok(d.querySelectorAll('[data-seq-edge]').length===8,'完整八条转移');const records=d.querySelector('[data-observation-range]').max;d.querySelector('[data-seq-state-info="3"]').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));ok(d.querySelector('[data-seq-state-detail]').textContent.includes('并检测一次'),'键盘查看匹配状态');ok(d.querySelector('[data-observation-range]').max===records,'查看状态不写模型');
+ d.querySelector('[data-toggle="a"]').click();ok(d.querySelectorAll('.an-seq-stream>span').length===0,'只改输入不采样');ok(d.querySelectorAll('.an-seq-graph .candidate').length===1,'单条候选转移');
+ for(const bit of '1011011')d.querySelector('[data-experiment-action="'+(bit==='1'?'one':'zero')+'"]').click();
+ ok(d.querySelectorAll('.an-seq-stream>span').length===7,'七个采样');ok(d.querySelectorAll('.an-seq-stream .hit').length===2,'两次重叠匹配');ok(d.querySelector('.an-seq-states .current b').textContent==='S1','匹配后保留前缀1');ok(d.querySelector('.an-scene').dataset.routeFallbacks==='[]','无布线回退');
+ d.querySelector('[data-observation-prev]').click();const n=d.querySelectorAll('.an-seq-stream>span').length;d.querySelector('[data-experiment-action="one"]').click();ok(d.querySelectorAll('.an-seq-stream>span').length===n,'历史只读');d.querySelector('[data-observation-live]').click();d.querySelector('[data-toggle="reset"]').click();ok(d.querySelectorAll('.an-seq-stream>span').length===7,'同步复位等待采样');d.querySelector('[data-experiment-action="tick"]').click();ok(d.querySelectorAll('.an-seq-stream>span').length===0,'边沿清空历史');ok(d.querySelector('.an-seq-states .current b').textContent==='S0','复位状态');return {status:'passed',checks:checks.length};
+}

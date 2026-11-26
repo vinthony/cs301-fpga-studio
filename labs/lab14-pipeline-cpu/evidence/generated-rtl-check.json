@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "reference": "independent Python RV32I interpreter, no app imports",
+  "programs": 205,
+  "hazardModes": [
+    "stall",
+    "forward"
+  ],
+  "instructionKinds": 40,
+  "architecturalRegisterSnapshotsPerMode": 1940,
+  "fullRegisters": 32,
+  "fullRAMBytes": 256,
+  "finalSnapshotBits": 3221,
+  "retirementSnapshotBits": 1088,
+  "faultReasonsCovered": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "scope": "each retired register/PC state and final full RAM/MMIO/fault state; explicit step holds and clear; not pipeline-cycle equivalence or physical timing",
+  "stdout": "PASS programs=205 modes=2 activeEdges=7304 holdEdges=7304 retiredChecks=3880\ntb.v:533: $finish called at 158380 (1s)"
+}

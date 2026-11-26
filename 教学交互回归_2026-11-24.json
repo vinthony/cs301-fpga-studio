@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-24",
+  "scope": "current teaching anatomy worktree",
+  "full_corpus": {
+    "views": 105,
+    "parts": 582,
+    "named_nets": 591
+  },
+  "browser_regression": {
+    "browser_experiments.js": {
+      "views": 105,
+      "checks": 636,
+      "status": "passed"
+    },
+    "browser_schematic_layout.js": {
+      "views": 104,
+      "issues": [],
+      "status": "passed"
+    }
+  },
+  "recent_specialized_evidence": {
+    "context_cutaway": 321,
+    "parent_return": 7,
+    "manual_guide": 8,
+    "input_changes": 6,
+    "truth_table": {
+      "cases": 10,
+      "combinations": 44,
+      "checks": 198
+    },
+    "storage_lens": 10,
+    "signal_follow": 42,
+    "bus_inspect": 28,
+    "board_adder": 14,
+    "carry_table": {
+      "pairs": 256,
+      "checks": 516
+    },
+    "cpu_commit_plan": {
+      "steps": 55,
+      "checks": 204
+    }
+  },
+  "interpretation": "Specialized results were obtained in preceding task turns. Counts overlap; do not aggregate as independent coverage. Full-corpus browser tests rerun in this turn.",
+  "incomplete": [
+    "Original 15-lecture source-to-page mapping",
+    "Dedicated predict-operate-explain exercise for every layer",
+    "Persistent same-instance binding across every internal layer",
+    "Whole-CPU independent RTL equivalence",
+    "Physical FPGA timing and hardware verification",
+    "State recovery after closing session or refreshing",
+    "Measured student understanding and comparative effectiveness"
+  ],
+  "goal_status": "active; overall completion unproven"
+}

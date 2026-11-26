@@ -1,0 +1,1 @@
+{"status": "passed", "postEdgeSnapshots": 18209, "preEdgeSnapshots": 18208, "packedBits": 15, "coverage": "10 phases x 16 controls, all 256 bytes with both stop levels, 10000 random controls", "reference": "independent Python sampled-bit list", "stdout": "PASS 18209 edges\ntb.v:16: $finish called at 182090 (1s)"}

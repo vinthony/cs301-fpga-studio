@@ -1,0 +1,29 @@
+{
+  "artifact": "labs/uart-bit-tx.zip",
+  "bytes": 35495,
+  "sha256": "ed38c8cc34d985a096dc27d9a88a1b0a3bfa54bb51f844b32030ee3fb2faa5b3",
+  "chiselTests": 2,
+  "rtl": {
+    "status": "passed",
+    "postEdgeSnapshots": 14817,
+    "preEdgeSnapshots": 14816,
+    "packedBits": 16,
+    "coverage": "11 phases x 16 control combinations, all 256 bytes, 10000 random controls",
+    "reference": "independent Python encoded frame list",
+    "stdout": "PASS 14817 edges\ntb.v:16: $finish called at 148170 (1s)"
+  },
+  "web": {
+    "cases": 14817,
+    "checks": 29634,
+    "compared": "captured byte,phase,TX,busy",
+    "excluded": "hardware accepted/done not present in web model"
+  },
+  "unpackedReview": "work/uart-tx-review-zqqribz3/uart-bit-tx",
+  "unpackedTestExportRTLCheck": "passed",
+  "download": {
+    "http": 200,
+    "bytes": 35495,
+    "sha256Matched": true
+  },
+  "boundary": "external bit-step enable, no baud generator/RX/physical FPGA timing"
+}

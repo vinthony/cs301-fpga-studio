@@ -1,0 +1,2 @@
+PASS vectors=4227505 pre_and_post_checked=1
+<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/raster-counter/verification/tb.sv:29: $finish called at 8455010000 (1ps)

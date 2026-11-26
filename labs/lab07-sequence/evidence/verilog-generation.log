@@ -1,0 +1,8 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab07-sequence/project
+[info] loading settings for project lab07-sequence from build.sbt...
+[info] set current project to lab07-sequence (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab07-sequence/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab07-sequence/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] running cs301.EmitSequence1011 
+[success] Total time: 2 s, completed Nov 24, 2026, 3:38:14 AM

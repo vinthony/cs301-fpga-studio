@@ -1,0 +1,3 @@
+VCD info: dumpfile /var/folders/8j/q66785tn2zj21p4xndhpb2gw0000gn/T/cs301-raster-oy8esk0l/sample.vcd opened for output.
+PASS vectors=1500 pre_and_post_checked=1
+<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/raster-counter/verification/tb.sv:29: $finish called at 3000000 (1ps)

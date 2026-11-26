@@ -1,0 +1,2 @@
+PASS vectors=2537185 pre_checks=17 post_checks=2
+<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/vga-prefix-timing/verification/tb.sv:29: $finish called at 5074370000 (1ps)

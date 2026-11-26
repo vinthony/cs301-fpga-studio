@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "decoder_words": 139338,
+  "supported_ids_seen": 40,
+  "opcode_funct3_funct7_grid": 131072,
+  "manual_immediate_cases": 1114704,
+  "clock_edges": 0,
+  "simulator": "Icarus Verilog",
+  "oracle": "separate handwritten Verilog decoder and immediate generator; raw slices checked directly",
+  "table_origin": "Chisel implementation rows reuse web declarative spec; independent reference RTL does not consume that table",
+  "output": "PASS 139338 decoder words, all 40 IDs, all eight manual immediate formats per word, no clocks\n<LOCAL_HOME>/Documents/ChatGPT/CS301 - \u8ba1\u7b97\u673a\u7cfb\u7edf\u8bbe\u8ba1/outputs/\u82af\u7247\u7ec6\u80de\u5b9e\u9a8c\u5ba4/labs/lab11-decoder/verification/out/tb.sv:27: $finish called at 1254042 (1s)\n"
+}

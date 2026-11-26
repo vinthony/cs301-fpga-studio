@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "supportedBaseInstructionKinds": 40,
+  "functionalOracle": {
+    "implementation": "independent Python interpreter",
+    "cases": 135,
+    "comparedArchitecturalSteps": 307,
+    "checks": 597,
+    "fields": [
+      "PC",
+      "32 registers",
+      "256 data bytes",
+      "retirement",
+      "halt reason",
+      "LED",
+      "display"
+    ]
+  },
+  "browserChecks": 29,
+  "closeLifecycleChecks": 2,
+  "allViewInteraction": {
+    "views": 105,
+    "checks": 636
+  },
+  "allViewReplay": {
+    "views": 105,
+    "checks": 630
+  },
+  "layout": {
+    "internalViews": 104,
+    "issues": 0
+  },
+  "prediction": {
+    "cases": 11,
+    "checks": 71
+  },
+  "layoutShellChecks": 36,
+  "goalStatus": "active",
+  "limits": [
+    "Whole CPU is a functional model; no whole-CPU RTL equivalence claim",
+    "Separate teaching program/data memories, not a unified SoC map",
+    "ECALL/EBREAK/faults stop; no privileged CSR, OS or trap return",
+    "Child views receive explicit independent copies, not persistent instance binding",
+    "CPU-page IO is live; outer board source mode remains separate",
+    "No physical timing or student effectiveness evidence"
+  ]
+}

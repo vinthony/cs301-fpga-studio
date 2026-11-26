@@ -1,0 +1,8 @@
+const fs=require('fs'),vm=require('vm'),crypto=require('crypto'),path=require('path');
+if(!process.argv[2])throw Error('Usage: node verification/compare_web.cjs /absolute/path/to/teaching-app');
+const base=path.resolve(process.argv[2]),ctx=vm.createContext({}),files=['architecture.js','anatomy-catalog.js','anatomy-model.js','anatomy-experiments.js'];
+for(const file of files)vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),ctx);
+ctx.trace=fs.readFileSync('evidence/scan-trace.csv','utf8').trim().split('\n').slice(1).map(line=>line.split(',').map(Number));
+const result=vm.runInContext(`(()=>{let checks=0;const s=anatomyState(),eq=(a,b,n)=>{if(a!==b)throw Error(n+': '+a+' != '+b);checks++};for(const [word,digit,phase,an,seg,dp]of trace){s.word=word;eq(s.digit,digit,'digit transition');eq(s.scanPhase,phase,'phase transition');const e=anatomyEvaluate('scan',s);eq(e.result,an,'actual an');eq(e.nets['seg与dp'],seg.toString(2).padStart(7,'0')+' / dp='+dp,'shared seg/dp');for(let i=0;i<4;i++)eq(e.digits[i],(an&(1<<i))?0:(~seg)&127,'actual lit mask');anatomyAdvance('scan',s);}return {status:'passed',frames:trace.length,checks}})()`,ctx);
+
+result.traceSHA256=crypto.createHash('sha256').update(fs.readFileSync('evidence/scan-trace.csv')).digest('hex');result.rtlSHA256=crypto.createHash('sha256').update(fs.readFileSync('rtl/SevenSegmentScan.v')).digest('hex');result.appHashes=Object.fromEntries(files.map(file=>[file,crypto.createHash('sha256').update(fs.readFileSync(path.join(base,file))).digest('hex')]));fs.writeFileSync('evidence/web-check.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({status:result.status,frames:result.frames,checks:result.checks}));

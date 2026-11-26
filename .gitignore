@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+target/
+out/
+.tools/
+test_run_dir/
+*.vcd
+*.vvp
+*.jar
+.env
+.env.*

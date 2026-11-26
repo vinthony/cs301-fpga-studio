@@ -1,0 +1,8 @@
+async()=>{
+let checks=0;const ok=(v,n)=>{if(!v)throw Error(n);checks++},wait=()=>new Promise(r=>setTimeout(r,200)),d=()=>document.querySelector('.anatomy-dialog[open]');d()?.querySelector('[data-an-close]').click();openArchitecture('multiply4');await wait();for(const [key,v]of [['av',13],['bv',11]]){const i=d().querySelector('[data-field="'+key+'"]');i.value=String(v);i.dispatchEvent(new Event('change',{bubbles:true}))}d().querySelector('[data-experiment-action="load"]').click();d().querySelector('[data-experiment-action="tick"]').click();
+for(const [part,width,value]of [['A',8,26],['B',4,5],['P',8,13]]){
+ const node=d().querySelector('[data-diagram-part="'+part+'"]');ok(node.querySelectorAll('[data-multiply-bit]').length===width,'exact width '+part);
+ for(let bit=0;bit<width;bit++){const cell=node.querySelector('[data-multiply-bit="'+bit+'"]');ok(cell.getAttribute('aria-label').includes('保存'+((value>>>bit)&1)),'actual bit '+part+bit);cell.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));ok(d().querySelector('.an-multiply-probe').textContent.includes(part+' · bit'+bit),'bit inspector '+part+bit);}
+}
+ok(d().querySelectorAll('.an-multiply-lens tbody tr').length===1,'inspection never advances');d().querySelector('[data-observation-prev]').click();const a=d().querySelector('[data-diagram-part="A"] [data-multiply-bit="2"]');a.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));ok(d().querySelector('.an-multiply-probe').textContent.includes('当前保存位 1'),'historical bit uses old13');d().querySelector('[data-observation-live]').click();return {status:'passed',checks};
+}

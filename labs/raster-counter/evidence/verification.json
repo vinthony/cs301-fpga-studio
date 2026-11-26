@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "exhaustiveTransitions": 4194304,
+  "trajectoryEdges": 33201,
+  "totalEdges": 4227505,
+  "preEdgeChecksPerVector": 5,
+  "postEdgeChecksPerVector": 1,
+  "vectorSHA256": "9abd18c09b7549409ef5523158cf04e53e1c28506eef45c2e4ae7b4c98245692",
+  "rtlSHA256": "574fab9a63295b3c9ffddddb9ec9ed2ea047ce4441a9227c91b7745be2d4c282",
+  "boundary": "Exhaustive cases use testbench state deposits; trajectory edges use previous captured q. Functional simulation only; no FPGA mapping or timing proof."
+}

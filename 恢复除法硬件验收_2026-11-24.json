@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "package": {
+    "bytes": 44706,
+    "files": 13,
+    "sha256": "99060351711528f14f041c09b16a640a80c0d50c035413fe14bbae16c7d59733",
+    "review": "<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/divide4-review-if8ji3te/restore-divide4"
+  },
+  "chiselTests": 2,
+  "rtl": {
+    "status": "passed",
+    "postEdgeSnapshots": 23297,
+    "preEdgeSnapshots": 23296,
+    "packedBits": 39,
+    "inputPairs": 256,
+    "coverage": "all input pairs including zero; 7 saved stages x 16 controls; paused inputs, done hold and 20000 random controls",
+    "reference": "closed-form quotient/remainder of original dividend prefixes, including next prefix candidates",
+    "stdout": "PASS 23297 edges\ntb.v:16: $finish called at 232970 (1s)"
+  },
+  "web": {
+    "status": "passed",
+    "checks": 46593,
+    "edges": 23297,
+    "scope": "same independent 39-bit saved state, status and combinational candidates as generated RTL; no paused wall-clock equivalence"
+  },
+  "extractedReview": {
+    "chiselTests": 2,
+    "rtl": {
+      "status": "passed",
+      "postEdgeSnapshots": 23297,
+      "preEdgeSnapshots": 23296,
+      "packedBits": 39,
+      "inputPairs": 256,
+      "coverage": "all input pairs including zero; 7 saved stages x 16 controls; paused inputs, done hold and 20000 random controls",
+      "reference": "closed-form quotient/remainder of original dividend prefixes, including next prefix candidates",
+      "stdout": "PASS 23297 edges\ntb.v:16: $finish called at 232970 (1s)"
+    }
+  },
+  "browserDownloadMatched": true,
+  "scope": "39-bit saved state, status and combinational trial/borrow/nextQ/nextR snapshots",
+  "limits": [
+    "four-bit unsigned division only",
+    "division by zero is a teaching error, not RV32 DIVU semantics",
+    "no CPU M extension or physical FPGA timing/resource validation"
+  ]
+}

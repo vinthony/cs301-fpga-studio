@@ -1,0 +1,5 @@
+PASS pairs=1048576 prefix_bits_per_pair=22 final_bits_per_pair=2
+<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/compare10-prefix/verification/tb.sv:21: $finish called at 1048576000 (1ps)
+
+PASS bit_truth_cases=16
+<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/compare10-prefix/verification/tb.sv:41: $finish called at 16000 (1ps)

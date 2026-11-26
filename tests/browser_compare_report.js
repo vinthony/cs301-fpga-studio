@@ -1,0 +1,15 @@
+async()=>{
+ let checks=0;const ok=(v,n)=>{if(!v)throw Error(n);checks++},parse=html=>new DOMParser().parseFromString(html,'text/html');
+ for(const [a,b]of [[0,0],[511,512],[512,511],[655,656],[656,656],[513,512],[1023,0]]){
+  const s=anatomyState();s.cmp10A=a;s.cmp10B=b;const doc=parse(anatomyExperimentReport({blueprint:ANATOMY.compare10,state:s,evaluation:anatomyEvaluate('compare10',s),path:['compare10']})),section=doc.querySelector('[data-report-compare="compare10"]'),rows=section.querySelectorAll('tbody tr');ok(rows.length===10,'all combinational rows');ok(!section.querySelector('button,script,input,animate'),'readonly comparison');
+  for(let i=0;i<10;i++){const bit=9-i,c=[...rows[i].querySelectorAll('td')].map(n=>n.textContent);ok(c[0]==='bit'+bit&&+c[1]===((a>>>bit)&1)&&+c[2]===((b>>>bit)&1),'row operands');ok(+c[3]===+((a>>>(bit+1))===(b>>>(bit+1)))&&+c[4]===+((a>>>(bit+1))<(b>>>(bit+1))),'entering prefix');ok(+c[5]===+((a>>>bit)===(b>>>bit))&&+c[6]===+((a>>>bit)<(b>>>bit)),'outgoing prefix');}
+  const decisive=[...rows].filter(n=>n.textContent.includes('最高不同位'));ok(decisive.length===(a===b?0:1),'one or no highest different bit');if(a===b)ok(rows[9].textContent.includes('所有十位相等'),'equal terminates at bit0');ok(section.textContent.includes('独立于讲解动画'),'not animation execution log');
+ }
+ for(let pattern=0;pattern<16;pattern++){const s=anatomyState();Object.assign(s,{cmpBitA:pattern&1,cmpBitB:(pattern>>1)&1,cmpPrefixEq:(pattern>>2)&1,cmpPrefixLt:(pattern>>3)&1});const section=parse(anatomyExperimentReport({blueprint:ANATOMY.comparebit,state:s,evaluation:anatomyEvaluate('comparebit',s),path:['comparebit']})).querySelector('[data-report-compare]');ok(section.querySelectorAll('tbody tr').length===1,'one bit truth row');ok(section.textContent.includes('不是合法比较前缀')===!!(s.cmpPrefixEq&&s.cmpPrefixLt),'invalid prefix marked')}
+ const d=()=>document.querySelector('.anatomy-dialog[open]');d()?.querySelector('[data-an-close]').click();openArchitecture('compare10');await new Promise(r=>setTimeout(r,250));const original=URL.createObjectURL,oldClick=HTMLAnchorElement.prototype.click;let blob;URL.createObjectURL=b=>{blob=b;return original(b)};HTMLAnchorElement.prototype.click=function(){};
+ try{
+  d().querySelector('[data-cmp10-walk-next]').click();d().querySelector('[data-export-report]').click();let doc=parse(await blob.text()),data=JSON.parse(doc.querySelector('pre').textContent);ok(doc.querySelectorAll('[data-report-compare] tbody tr').length===10&&data.state.ticks===0,'partial guide exports complete combinational result not clocks');
+  d().querySelector('[data-cmp10-example="656,656"]').click();d().querySelector('[data-observation-prev]').click();d().querySelector('[data-export-report]').click();doc=parse(await blob.text());data=JSON.parse(doc.querySelector('pre').textContent);ok(data.historical&&data.state.cmp10A===655&&doc.querySelector('[data-report-compare]').textContent.includes('最高不同位为bit4'),'actual historical report uses observed operands');
+ }finally{URL.createObjectURL=original;HTMLAnchorElement.prototype.click=oldClick;d().querySelector('[data-observation-live]')?.click()}
+ return {status:'passed',checks};
+}

@@ -1,0 +1,20 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/uart-bit-rx/project
+[info] loading settings for project uart-bit-rx from build.sbt...
+[info] set current project to uart-bit-rx (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/uart-bit-rx/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/uart-bit-rx/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/uart-bit-rx/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] UARTBitRXSpec:
+[info] UARTBitRX
+[info] - should check every byte and both stop levels
+[info] - should ignore idle high and clear incomplete data while paused
+[info] Run completed in 893 milliseconds.
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 5:57:02 AM
+[info] running cs301.EmitUARTBitRX 
+[success] Total time: 1 s, completed Nov 24, 2026, 5:57:03 AM

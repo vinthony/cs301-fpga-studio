@@ -1,0 +1,627 @@
+{
+  "date": "2026-11-24",
+  "revision": "functional-symbols",
+  "layoutAudit": {
+    "views": 99,
+    "issues": [],
+    "rows": [
+      {
+        "id": "fulladder",
+        "parts": 10,
+        "nets": 12,
+        "texts": 18
+      },
+      {
+        "id": "halfadder",
+        "parts": 6,
+        "nets": 6,
+        "texts": 13
+      },
+      {
+        "id": "mux",
+        "parts": 8,
+        "nets": 8,
+        "texts": 15
+      },
+      {
+        "id": "xor",
+        "parts": 8,
+        "nets": 9,
+        "texts": 14
+      },
+      {
+        "id": "and",
+        "parts": 5,
+        "nets": 4,
+        "texts": 11
+      },
+      {
+        "id": "or",
+        "parts": 5,
+        "nets": 4,
+        "texts": 11
+      },
+      {
+        "id": "not",
+        "parts": 6,
+        "nets": 6,
+        "texts": 11
+      },
+      {
+        "id": "cmos",
+        "parts": 6,
+        "nets": 6,
+        "texts": 11
+      },
+      {
+        "id": "nand",
+        "parts": 9,
+        "nets": 11,
+        "texts": 15
+      },
+      {
+        "id": "nor",
+        "parts": 9,
+        "nets": 11,
+        "texts": 15
+      },
+      {
+        "id": "nmos",
+        "parts": 5,
+        "nets": 0,
+        "texts": 8
+      },
+      {
+        "id": "pmos",
+        "parts": 5,
+        "nets": 0,
+        "texts": 8
+      },
+      {
+        "id": "adder",
+        "parts": 7,
+        "nets": 13,
+        "texts": 33
+      },
+      {
+        "id": "cpu",
+        "parts": 8,
+        "nets": 13,
+        "texts": 37
+      },
+      {
+        "id": "alu",
+        "parts": 7,
+        "nets": 9,
+        "texts": 22
+      },
+      {
+        "id": "fpgaFabric",
+        "parts": 12,
+        "nets": 7,
+        "texts": 32
+      },
+      {
+        "id": "packageView",
+        "parts": 4,
+        "nets": 0,
+        "texts": 7
+      },
+      {
+        "id": "clb",
+        "parts": 5,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "slice",
+        "parts": 14,
+        "nets": 16,
+        "texts": 58
+      },
+      {
+        "id": "lut",
+        "parts": 4,
+        "nets": 3,
+        "texts": 15
+      },
+      {
+        "id": "carry4",
+        "parts": 6,
+        "nets": 5,
+        "texts": 15
+      },
+      {
+        "id": "iobank",
+        "parts": 4,
+        "nets": 5,
+        "texts": 18
+      },
+      {
+        "id": "dsp",
+        "parts": 4,
+        "nets": 4,
+        "texts": 17
+      },
+      {
+        "id": "register",
+        "parts": 7,
+        "nets": 12,
+        "texts": 33
+      },
+      {
+        "id": "dff",
+        "parts": 6,
+        "nets": 6,
+        "texts": 24
+      },
+      {
+        "id": "latch",
+        "parts": 4,
+        "nets": 4,
+        "texts": 11
+      },
+      {
+        "id": "masterSlave",
+        "parts": 6,
+        "nets": 6,
+        "texts": 24
+      },
+      {
+        "id": "sramcell",
+        "parts": 7,
+        "nets": 8,
+        "texts": 13
+      },
+      {
+        "id": "synchronizer",
+        "parts": 4,
+        "nets": 4,
+        "texts": 18
+      },
+      {
+        "id": "input",
+        "parts": 5,
+        "nets": 4,
+        "texts": 19
+      },
+      {
+        "id": "debounce",
+        "parts": 5,
+        "nets": 6,
+        "texts": 20
+      },
+      {
+        "id": "edge",
+        "parts": 4,
+        "nets": 4,
+        "texts": 12
+      },
+      {
+        "id": "scancounter",
+        "parts": 3,
+        "nets": 4,
+        "texts": 12
+      },
+      {
+        "id": "clocking",
+        "parts": 4,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "reset",
+        "parts": 4,
+        "nets": 5,
+        "texts": 19
+      },
+      {
+        "id": "sram",
+        "parts": 5,
+        "nets": 4,
+        "texts": 17
+      },
+      {
+        "id": "bram",
+        "parts": 5,
+        "nets": 4,
+        "texts": 17
+      },
+      {
+        "id": "pc",
+        "parts": 4,
+        "nets": 4,
+        "texts": 14
+      },
+      {
+        "id": "regfile",
+        "parts": 5,
+        "nets": 6,
+        "texts": 16
+      },
+      {
+        "id": "decoder",
+        "parts": 8,
+        "nets": 10,
+        "texts": 13
+      },
+      {
+        "id": "subtract",
+        "parts": 5,
+        "nets": 4,
+        "texts": 17
+      },
+      {
+        "id": "logic",
+        "parts": 6,
+        "nets": 8,
+        "texts": 11
+      },
+      {
+        "id": "shifter",
+        "parts": 4,
+        "nets": 5,
+        "texts": 11
+      },
+      {
+        "id": "compare",
+        "parts": 4,
+        "nets": 3,
+        "texts": 10
+      },
+      {
+        "id": "fsm",
+        "parts": 4,
+        "nets": 4,
+        "texts": 14
+      },
+      {
+        "id": "instruction",
+        "parts": 5,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "immediate",
+        "parts": 4,
+        "nets": 3,
+        "texts": 12
+      },
+      {
+        "id": "control",
+        "parts": 4,
+        "nets": 3,
+        "texts": 13
+      },
+      {
+        "id": "loadstore",
+        "parts": 5,
+        "nets": 5,
+        "texts": 20
+      },
+      {
+        "id": "pipeline",
+        "parts": 6,
+        "nets": 7,
+        "texts": 20
+      },
+      {
+        "id": "forward",
+        "parts": 4,
+        "nets": 3,
+        "texts": 12
+      },
+      {
+        "id": "hazard",
+        "parts": 4,
+        "nets": 3,
+        "texts": 12
+      },
+      {
+        "id": "branch",
+        "parts": 4,
+        "nets": 3,
+        "texts": 12
+      },
+      {
+        "id": "scan",
+        "parts": 6,
+        "nets": 6,
+        "texts": 21
+      },
+      {
+        "id": "segmentdecode",
+        "parts": 3,
+        "nets": 2,
+        "texts": 147
+      },
+      {
+        "id": "blanking",
+        "parts": 4,
+        "nets": 4,
+        "texts": 12
+      },
+      {
+        "id": "leddriver",
+        "parts": 5,
+        "nets": 4,
+        "texts": 17
+      },
+      {
+        "id": "uartcore",
+        "parts": 5,
+        "nets": 6,
+        "texts": 19
+      },
+      {
+        "id": "baud",
+        "parts": 4,
+        "nets": 4,
+        "texts": 14
+      },
+      {
+        "id": "tx",
+        "parts": 5,
+        "nets": 4,
+        "texts": 14
+      },
+      {
+        "id": "rx",
+        "parts": 5,
+        "nets": 5,
+        "texts": 20
+      },
+      {
+        "id": "shiftreg",
+        "parts": 5,
+        "nets": 4,
+        "texts": 24
+      },
+      {
+        "id": "vgacore",
+        "parts": 5,
+        "nets": 5,
+        "texts": 19
+      },
+      {
+        "id": "pixelcounter",
+        "parts": 4,
+        "nets": 5,
+        "texts": 18
+      },
+      {
+        "id": "videotiming",
+        "parts": 4,
+        "nets": 3,
+        "texts": 11
+      },
+      {
+        "id": "framebuffer",
+        "parts": 4,
+        "nets": 3,
+        "texts": 15
+      },
+      {
+        "id": "gpiocore",
+        "parts": 4,
+        "nets": 4,
+        "texts": 15
+      },
+      {
+        "id": "adccore",
+        "parts": 4,
+        "nets": 4,
+        "texts": 17
+      },
+      {
+        "id": "quantizer",
+        "parts": 3,
+        "nets": 2,
+        "texts": 10
+      },
+      {
+        "id": "filter",
+        "parts": 6,
+        "nets": 8,
+        "texts": 20
+      },
+      {
+        "id": "memorySystem",
+        "parts": 5,
+        "nets": 4,
+        "texts": 19
+      },
+      {
+        "id": "cache",
+        "parts": 5,
+        "nets": 6,
+        "texts": 20
+      },
+      {
+        "id": "tag",
+        "parts": 4,
+        "nets": 4,
+        "texts": 13
+      },
+      {
+        "id": "cachefsm",
+        "parts": 3,
+        "nets": 3,
+        "texts": 12
+      },
+      {
+        "id": "dram",
+        "parts": 4,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "dramcell",
+        "parts": 5,
+        "nets": 4,
+        "texts": 13
+      },
+      {
+        "id": "flash",
+        "parts": 4,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "config",
+        "parts": 4,
+        "nets": 3,
+        "texts": 15
+      },
+      {
+        "id": "usbcore",
+        "parts": 4,
+        "nets": 3,
+        "texts": 13
+      },
+      {
+        "id": "usbtransport",
+        "parts": 4,
+        "nets": 4,
+        "texts": 15
+      },
+      {
+        "id": "hidparser",
+        "parts": 4,
+        "nets": 4,
+        "texts": 14
+      },
+      {
+        "id": "routing",
+        "parts": 4,
+        "nets": 3,
+        "texts": 15
+      },
+      {
+        "id": "wires",
+        "parts": 4,
+        "nets": 4,
+        "texts": 13
+      },
+      {
+        "id": "switches",
+        "parts": 5,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "buttons",
+        "parts": 6,
+        "nets": 5,
+        "texts": 17
+      },
+      {
+        "id": "clock",
+        "parts": 4,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "leds",
+        "parts": 5,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "sevenseg",
+        "parts": 6,
+        "nets": 6,
+        "texts": 20
+      },
+      {
+        "id": "programming",
+        "parts": 4,
+        "nets": 3,
+        "texts": 15
+      },
+      {
+        "id": "uart",
+        "parts": 5,
+        "nets": 6,
+        "texts": 19
+      },
+      {
+        "id": "usbhost",
+        "parts": 4,
+        "nets": 3,
+        "texts": 13
+      },
+      {
+        "id": "vga",
+        "parts": 5,
+        "nets": 5,
+        "texts": 19
+      },
+      {
+        "id": "pmod",
+        "parts": 4,
+        "nets": 4,
+        "texts": 15
+      },
+      {
+        "id": "xadc",
+        "parts": 4,
+        "nets": 4,
+        "texts": 17
+      },
+      {
+        "id": "power",
+        "parts": 8,
+        "nets": 8,
+        "texts": 25
+      },
+      {
+        "id": "io",
+        "parts": 16,
+        "nets": 13,
+        "texts": 46
+      },
+      {
+        "id": "system",
+        "parts": 4,
+        "nets": 4,
+        "texts": 16
+      },
+      {
+        "id": "ledjunction",
+        "parts": 5,
+        "nets": 4,
+        "texts": 10
+      },
+      {
+        "id": "regulator",
+        "parts": 7,
+        "nets": 7,
+        "texts": 17
+      }
+    ]
+  },
+  "interactionChecks": 711,
+  "visualSamples": [
+    "cpu",
+    "register",
+    "sram",
+    "lut",
+    "fpgaFabric",
+    "slice",
+    "uartcore",
+    "adccore",
+    "clock"
+  ],
+  "lutTree": {
+    "stages": 6,
+    "nodes": 63,
+    "verifiedAddresses": [
+      0,
+      1,
+      31,
+      63
+    ]
+  },
+  "boundary": "内部缩略符号为结构示意；没有新增物理仿真或改动底层数字行为。"
+}

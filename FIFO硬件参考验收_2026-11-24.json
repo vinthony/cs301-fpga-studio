@@ -1,0 +1,25 @@
+{
+  "artifact": "labs/fifo-buffer.zip",
+  "bytes": 69151,
+  "sha256": "a991eeda0901a47fcb3df7100f0798c5769fc9d2d0a6428049322d3b19f15911",
+  "chiselTests": 2,
+  "rtl": {
+    "status": "passed",
+    "postEdgeSnapshots": 20641,
+    "preEdgeSnapshots": 20640,
+    "packedBits": 52,
+    "coverage": "all 5 occupancies x 32 push/pop/step/clear/reset combinations plus 20000 deterministic random edges",
+    "reference": "independent Python deque plus physical-slot bookkeeping",
+    "stdout": "PASS 20641 edges\ntb.v:16: $finish called at 206410 (1s)"
+  },
+  "webChecks": 41282,
+  "unpackedReview": "work/fifo-review-oyeiua6t/fifo-buffer",
+  "unpackedTestsAndExport": "passed",
+  "unpackedIndependentRTLCheck": "passed",
+  "browserDownload": {
+    "status": 200,
+    "bytes": 69151,
+    "sha256Matched": true
+  },
+  "boundary": "FIFO only; UART hardware, CDC, STA and physical FPGA validation not included"
+}

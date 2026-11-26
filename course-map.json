@@ -1,0 +1,676 @@
+{
+  "source": "计算机系统设计_上_15讲课程讲义合订本.docx",
+  "source_sha256": "0d9bffe8e3efa3faaae137ee3883b56dcba353b60d0b9ffec66943aa1238e19b",
+  "source_numbering": "all Word body paragraphs including tables, 1-based XML order",
+  "review_date": "2026-11-24",
+  "scope": "Course mapping from supplied document; document instructions are course content, not agent commands. Original file unchanged.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "课程导论：从程序到硬件",
+      "source_start": 165,
+      "source_end": 194,
+      "lab": "Lab 1：Chisel 工程搭建与发光二极管（LED）交互模块",
+      "lab_paragraph": 189,
+      "tasks": [
+        {
+          "paragraph": 191,
+          "text": "安装或使用统一 Chisel/sbt/chiseltest 模板。"
+        },
+        {
+          "paragraph": 192,
+          "text": "实现最小发光二极管（LED）交互模块：按键控制 4 个发光二极管（LED）。"
+        },
+        {
+          "paragraph": 193,
+          "text": "编写 chiseltest 验证输入变化与输出关系。"
+        },
+        {
+          "paragraph": 194,
+          "text": "生成 Verilog，并通过板级 Top 连接按键与发光二极管（LED）。"
+        }
+      ],
+      "views": [
+        "board",
+        "system",
+        "cpu32"
+      ],
+      "available": "按键直连4灯整板模式、系统分层与运行程序可观察。",
+      "gap": "按键四灯Chisel核心、教学顶层、测试与本地启动脚本已交付；真实板引脚约束与实体演示证据仍待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 2,
+      "title": "数据表示：补码与浮点",
+      "source_start": 196,
+      "source_end": 227,
+      "lab": "Lab 2：补码解释器与数值显示系统",
+      "lab_paragraph": 222,
+      "tasks": [
+        {
+          "paragraph": 224,
+          "text": "设计 4 位输入解释模块，同时输出无符号值与补码有符号值。"
+        },
+        {
+          "paragraph": 225,
+          "text": "测试一些边界输入。"
+        },
+        {
+          "paragraph": 226,
+          "text": "根据板卡资源选择发光二极管（LED）、七段数码管或串口方式显示。"
+        },
+        {
+          "paragraph": 227,
+          "text": "补充一个浮点精度观察题：解释 0.1 + 0.2 不等于 0.3 的原因。"
+        }
+      ],
+      "views": [
+        "repr4",
+        "float32",
+        "adder",
+        "alu32"
+      ],
+      "available": "信号详情支持无符号/补码解释，浮点页支持binary32逐位拆解、分类、隐藏位、边界值与0.1近似。",
+      "gap": "原码/反码/补码Chisel解释器及测试已交付；0.1+0.2网页观察已补。板级数值显示与浮点硬件工程仍待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 3,
+      "title": "晶体管、逻辑门与布尔代数",
+      "source_start": 229,
+      "source_end": 260,
+      "lab": "Lab 3：Chisel实现的基本逻辑门与组合逻辑模块",
+      "lab_paragraph": 255,
+      "tasks": [
+        {
+          "paragraph": 257,
+          "text": "用 Chisel 实现与门（AND）、或门（OR）、非门（NOT）、异或门（XOR）、与非门（NAND）、或非门（NOR）等基本门模块。"
+        },
+        {
+          "paragraph": 258,
+          "text": "为每个门编写完整真值表测试。"
+        },
+        {
+          "paragraph": 259,
+          "text": "实现一个二选一多路选择器（Mux）或简单比较器。"
+        },
+        {
+          "paragraph": 260,
+          "text": "在板上用拨码开关输入、发光二极管（LED）输出观察组合逻辑。"
+        }
+      ],
+      "views": [
+        "and",
+        "or",
+        "not",
+        "xor",
+        "nand",
+        "nor",
+        "mux",
+        "cmos",
+        "nmos",
+        "pmos",
+        "demorganNand",
+        "demorganNor",
+        "truth2"
+      ],
+      "available": "逻辑门、CMOS与交互真值表可逐层操作。 新增两条德摩根定律的并行电路、全部输入真值表与门级来源下钻。 二输入16种函数可编辑真值表、观察四条最小项支路，并对照等价简式。",
+      "gap": "逻辑门/MUX/比较器Chisel工程、穷举测试和生成RTL已交付；德摩根与二输入最小项交互已补，其余布尔代数定律、多变量化简与实体板接口适配仍待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 4,
+      "title": "组合逻辑与加法器",
+      "source_start": 262,
+      "source_end": 293,
+      "lab": "Lab 4：Chisel 实现的一位全加器与四位加法器",
+      "lab_paragraph": 288,
+      "tasks": [
+        {
+          "paragraph": 290,
+          "text": "写出一位全加器真值表和逻辑表达式。"
+        },
+        {
+          "paragraph": 291,
+          "text": "用 Chisel 实现 FullAdder。"
+        },
+        {
+          "paragraph": 292,
+          "text": "级联实现 Adder4，并测试至少 5 组输入。"
+        },
+        {
+          "paragraph": 293,
+          "text": "参数化 n 位加法器或比较行波进位加法器（RCA）与先行进位加法器（CLA）思路。"
+        }
+      ],
+      "views": [
+        "fulladder",
+        "halfadder",
+        "adder",
+        "carry4"
+      ],
+      "available": "全加器真值表、四位完整和、逐级进位和整板输入带入可操作。",
+      "gap": "参数化Chisel行波与四位CLA实现、穷举测试、生成RTL已交付；实际综合延迟/资源比较及板级适配待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 5,
+      "title": "常用组合模块与简易算术逻辑单元（ALU）",
+      "source_start": 295,
+      "source_end": 326,
+      "lab": "Lab 5：4 位简易算术逻辑单元（ALU）",
+      "lab_paragraph": 321,
+      "tasks": [
+        {
+          "paragraph": 323,
+          "text": "实现 4 位算术逻辑单元（ALU），支持 add/sub/and/or/xor/sll/srl/slt 中至少 5 类操作。"
+        },
+        {
+          "paragraph": 324,
+          "text": "定义清晰的算术逻辑单元（ALU）操作码。"
+        },
+        {
+          "paragraph": 325,
+          "text": "用 chiseltest 覆盖正常值、边界值和溢出观察。"
+        },
+        {
+          "paragraph": 326,
+          "text": "上板演示：拨码开关输入，发光二极管（LED）或数码管显示结果。"
+        }
+      ],
+      "views": [
+        "alu",
+        "mux",
+        "decoder",
+        "compare",
+        "shifter"
+      ],
+      "available": "四位ALU与组合选择、比较、移位模块可操作。",
+      "gap": "四位十操作模型、C/V语义、Chisel工程与穷举测试已交付；板级适配与真实性能资源报告待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 6,
+      "title": "时序逻辑、锁存器与触发器",
+      "source_start": 328,
+      "source_end": 359,
+      "lab": "Lab 6：寄存器、计数器与锁存器实验",
+      "lab_paragraph": 354,
+      "tasks": [
+        {
+          "paragraph": 356,
+          "text": "用 RegInit 和 RegEnable 实现可复位、可使能寄存器。"
+        },
+        {
+          "paragraph": 357,
+          "text": "实现计数器与 1 Hz 秒闪模块。"
+        },
+        {
+          "paragraph": 358,
+          "text": "观察透明锁存器与边沿触发器行为差异。"
+        },
+        {
+          "paragraph": 359,
+          "text": "用测试波形说明状态何时被更新。"
+        }
+      ],
+      "views": [
+        "dff",
+        "latch",
+        "register",
+        "clocking",
+        "reset",
+        "input",
+        "synchronizer",
+        "debounce",
+        "edge"
+      ],
+      "available": "透明/边沿、使能/复位、状态对照、按键激励与采样波形可观察。",
+      "gap": "RegInit/RegEnable、计数器、分频及按键同步消抖事件Chisel工程和独立RTL对照已交付；透明锁存器RTL、实体1Hz演示与定量时序分析待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 7,
+      "title": "有限状态机（FSM）",
+      "source_start": 361,
+      "source_end": 390,
+      "lab": "Lab 7：序列检测器有限状态机（FSM）",
+      "lab_paragraph": 385,
+      "tasks": [
+        {
+          "paragraph": 387,
+          "text": "设计识别序列 1011 的状态机。"
+        },
+        {
+          "paragraph": 388,
+          "text": "画出状态图和状态转移表。"
+        },
+        {
+          "paragraph": 389,
+          "text": "用 Chisel 实现状态寄存器、转移逻辑和输出逻辑。"
+        },
+        {
+          "paragraph": 390,
+          "text": "用 chiseltest 覆盖重叠序列和非匹配序列。"
+        }
+      ],
+      "views": [
+        "seq1011",
+        "fsm"
+      ],
+      "available": "指定1011重叠检测、四前缀状态、转移表、逐位采样与保存脉冲可操作，另有通用状态机。",
+      "gap": "Chisel源码、chiseltest、生成Verilog和独立RTL对照已提供；Moore/Mealy并列实现及实体板验证仍待补。现有1011为Mealy候选加输出寄存器。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 8,
+      "title": "指令集架构（ISA）与 RISC-V 概览",
+      "source_start": 392,
+      "source_end": 420,
+      "lab": "Lab 8：精简指令集计算机第五版（RISC-V）指令字段观察与小型编码练习",
+      "lab_paragraph": 416,
+      "tasks": [
+        {
+          "paragraph": 418,
+          "text": "手工拆解 add、addi、lw、sw、beq、jal 等指令字段。"
+        },
+        {
+          "paragraph": 419,
+          "text": "观察 32 位机器码中 opcode、rd、rs1、rs2、funct3、funct7 的位置。"
+        },
+        {
+          "paragraph": 420,
+          "text": "完成若干指令的手工编码或反汇编练习。"
+        }
+      ],
+      "views": [
+        "decoder32",
+        "immgen32",
+        "cpu32"
+      ],
+      "available": "RV32I编码、字段、指令类别与汇编程序可观察。",
+      "gap": "原始字段Chisel工程、固定编码练习与核对表已交付；ISA历史比较和ABI别名专项讲解仍待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 9,
+      "title": "32 位算术逻辑单元（ALU）完整实现",
+      "source_start": 422,
+      "source_end": 474,
+      "lab": "Lab 9：32 位算术逻辑单元（ALU）与边界测试",
+      "lab_paragraph": 469,
+      "tasks": [
+        {
+          "paragraph": 471,
+          "text": "将 4 位算术逻辑单元（ALU）扩展为 32 位算术逻辑单元（ALU）。"
+        },
+        {
+          "paragraph": 472,
+          "text": "增加移位、比较和标志位输出。"
+        },
+        {
+          "paragraph": 473,
+          "text": "测试 0、最大正数、最小负数、全 1、移位边界等样例。"
+        },
+        {
+          "paragraph": 474,
+          "text": "比较行波进位与简化超前进位实现。"
+        }
+      ],
+      "views": [
+        "alu32"
+      ],
+      "available": "32位十类运算、标志、边界输入和独立RTL对照已有。",
+      "gap": "参数化Chisel ALU、边界/随机测试和生成RTL已交付；32位RCA/CLA结构对照、关键路径与真实资源时序分析待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 10,
+      "title": "寄存器堆设计",
+      "source_start": 476,
+      "source_end": 505,
+      "lab": "Lab 10：双读单写寄存器堆（Register File）",
+      "lab_paragraph": 500,
+      "tasks": [
+        {
+          "paragraph": 502,
+          "text": "实现 32×32 或参数化寄存器堆。"
+        },
+        {
+          "paragraph": 503,
+          "text": "支持两个读端口和一个写端口。"
+        },
+        {
+          "paragraph": 504,
+          "text": "保护 x0，禁止写入后改变其值。"
+        },
+        {
+          "paragraph": 505,
+          "text": "测试读写时序、同周期读写和写转发策略。"
+        }
+      ],
+      "views": [
+        "regfile32"
+      ],
+      "available": "32×32双读单写、x0、边沿写入与旁路实验已有。",
+      "gap": "参数化Chisel寄存器堆、状态流/全读地址对测试和生成RTL已交付；实体资源映射及真实时序验证仍待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 11,
+      "title": "指令格式与解码器",
+      "source_start": 507,
+      "source_end": 538,
+      "lab": "Lab 11：译码器（Decoder） + 立即数生成器（ImmGen）",
+      "lab_paragraph": 533,
+      "tasks": [
+        {
+          "paragraph": 535,
+          "text": "实现 译码器（Decoder），输出 rd、rs1、rs2、opcode、funct3、funct7。"
+        },
+        {
+          "paragraph": 536,
+          "text": "实现立即数生成器（ImmGen），支持 I/S/B/U/J 五类立即数。"
+        },
+        {
+          "paragraph": 537,
+          "text": "实现最小控制器 Ctrl，输出主要控制信号。"
+        },
+        {
+          "paragraph": 538,
+          "text": "至少使用 12 条 32 位基础整数指令集（RV32I）指令做字段断言。"
+        }
+      ],
+      "views": [
+        "decoder32",
+        "immgen32"
+      ],
+      "available": "完整字段、五类立即数拼接和主要控制信号可操作并已有独立RTL对照。",
+      "gap": "Decoder/ImmGen/控制请求Chisel工程、固定编码及全格式测试已交付；执行异常门控、CPU最终提交与实体板验证仍属后续集成。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 12,
+      "title": "单周期数据通路",
+      "source_start": 540,
+      "source_end": 569,
+      "lab": "Lab 12：单周期中央处理器（CPU）主链路",
+      "lab_paragraph": 564,
+      "tasks": [
+        {
+          "paragraph": 566,
+          "text": "组装程序计数器（PC）、指令存储器（IMEM）、译码器（Decoder）、寄存器堆（RegFile）、算术逻辑单元（ALU）。"
+        },
+        {
+          "paragraph": 567,
+          "text": "优先支持 R 型和 I 型算术逻辑指令。"
+        },
+        {
+          "paragraph": 568,
+          "text": "让一小段 addi/add 程序在仿真中跑通。"
+        },
+        {
+          "paragraph": 569,
+          "text": "输出关键寄存器结果用于测试。"
+        }
+      ],
+      "views": [
+        "cpu32",
+        "pc",
+        "regfile32",
+        "alu32"
+      ],
+      "available": "单周期功能CPU可运行addi/add，观察保存寄存器和下一边沿清单。",
+      "gap": "R/I算术Chisel主链路、程序级独立RTL对照已交付；网页内部持续实例绑定、更完整CPU及实体板时序仍待推进。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 13,
+      "title": "单周期控制器与完整中央处理器（CPU）",
+      "source_start": 571,
+      "source_end": 600,
+      "lab": "Lab 13：完整单周期精简指令集计算机第五版（RISC-V）子集中央处理器（CPU）",
+      "lab_paragraph": 595,
+      "tasks": [
+        {
+          "paragraph": 597,
+          "text": "在 Lab 12 基础上补齐数据存储器（DMEM）、写回 多路选择器（Mux）、分支跳转逻辑。"
+        },
+        {
+          "paragraph": 598,
+          "text": "支持一个教学子集：add/sub/addi/lw/sw/beq/jal 等。"
+        },
+        {
+          "paragraph": 599,
+          "text": "运行一段含循环或访存的小程序。"
+        },
+        {
+          "paragraph": 600,
+          "text": "提交数据通路图、控制信号表和测试日志。"
+        }
+      ],
+      "views": [
+        "cpu32",
+        "decoder32",
+        "branch",
+        "loadstore"
+      ],
+      "available": "功能CPU可运行循环/访存/分支/跳转并驱动整板教学I/O。",
+      "gap": "完整单周期Chisel教学CPU、私有数据RAM、分支跳转与独立程序级RTL对照已交付；统一SoC地址、时序闭合和实体板验证待补。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 14,
+      "title": "流水线与冒险处理",
+      "source_start": 602,
+      "source_end": 631,
+      "lab": "Lab 14：流水线骨架与冒险观察",
+      "lab_paragraph": 626,
+      "tasks": [
+        {
+          "paragraph": 628,
+          "text": "把单周期数据通路拆成五级流水线骨架。"
+        },
+        {
+          "paragraph": 629,
+          "text": "插入流水段寄存器。"
+        },
+        {
+          "paragraph": 630,
+          "text": "构造会出错的数据冒险程序并观察错误。"
+        },
+        {
+          "paragraph": 631,
+          "text": "实现一种最小 forwarding 或 stall 机制。"
+        }
+      ],
+      "views": [
+        "pipeline32",
+        "pipeline",
+        "forward",
+        "hazard"
+      ],
+      "available": "五级流水网页、Chisel CPU与生成RTL；三种冒险策略、真实段寄存器、205程序独立指令结果核对及7304边沿逐周期网页对照。",
+      "gap": "实体FPGA引脚/时钟约束、综合资源、时序收敛、上板调试仍待补；仿真对照不等于实体性能或位流验证。",
+      "status": "部分支持；不等于完成课程实验"
+    },
+    {
+      "week": 15,
+      "title": "课程综合与作品展示",
+      "source_start": 633,
+      "source_end": 662,
+      "lab": "Lab 15：简化精简指令集计算机第五版（RISC-V）处理器核（Core）综合展示",
+      "lab_paragraph": 657,
+      "tasks": [
+        {
+          "paragraph": 659,
+          "text": "提交完整工程、测试代码、Verilog 产物和板级演示材料。"
+        },
+        {
+          "paragraph": 660,
+          "text": "展示至少一个可运行程序。"
+        },
+        {
+          "paragraph": 661,
+          "text": "说明设计限制与已知问题。"
+        },
+        {
+          "paragraph": 662,
+          "text": "完成 5 分钟个人答辩。"
+        }
+      ],
+      "views": [
+        "cpu32",
+        "board"
+      ],
+      "available": "可运行程序、板面教学输出与观察证据导出已有；另有综合作品本地材料检查、SHA-256清单、说明模板与五分钟答辩练习。",
+      "gap": "学生完整Chisel工程、测试/Verilog产物、板级材料、真实性能资源结果及答辩评价尚未交付。",
+      "status": "部分支持；不等于完成课程实验"
+    }
+  ],
+  "entry_urls": {
+    "1": {
+      "board": "learn.html?inside=board&source=buttons"
+    }
+  },
+  "lab_packages": {
+    "1": "labs/lab01-button-led.zip",
+    "2": "labs/lab02-representation.zip",
+    "3": "labs/lab03-logic.zip",
+    "4": "labs/lab04-adders.zip",
+    "5": "labs/lab05-alu4.zip",
+    "6": "labs/lab06-state.zip",
+    "7": "labs/lab07-sequence.zip",
+    "8": "labs/lab08-instruction-fields.zip",
+    "9": "labs/lab09-alu32.zip",
+    "10": "labs/lab10-regfile32.zip",
+    "11": "labs/lab11-decoder.zip",
+    "12": "labs/lab12-arithmetic-cpu.zip",
+    "13": "labs/lab13-single-cycle-cpu.zip",
+    "14": "labs/lab14-pipeline-cpu.zip"
+  },
+  "view_titles": {
+    "fulladder": "一位全加器 · 2 XOR + 2 AND + 1 OR",
+    "halfadder": "半加器 · 和与进位分开",
+    "mux": "二选一选择器 · 看清反馈与选择",
+    "xor": "异或门 · 两种不同输入路径",
+    "and": "与门 · 先与非，再反相",
+    "or": "或门 · 先或非，再反相",
+    "not": "CMOS 反相器 · 互补上下拉",
+    "cmos": "CMOS 反相器 · 互补上下拉",
+    "nand": "CMOS NAND · 上拉并联 / 下拉串联",
+    "nor": "CMOS NOR · 上拉串联 / 下拉并联",
+    "nmos": "NMOS · 源、漏、栅与绝缘层",
+    "pmos": "PMOS · 源、漏、栅与绝缘层",
+    "adder": "四位加法器 · 从 bit0 到 bit3 的进位链",
+    "cpu": "CPU · 指令与数据真正走不同的线",
+    "alu": "ALU · 并行计算、末级选择",
+    "board": "GBU-CS301 · 从真实板面开始",
+    "fpgaFabric": "FPGA 封装与片内功能分区",
+    "packageView": "芯片封装 · 盖板、硅片、基板、焊球",
+    "clb": "CLB · 两个 Slice 与互连",
+    "slice": "Slice · 四个 LUT 与八个存储单元",
+    "lut": "LUT6 · 64 个配置位与选择网络",
+    "carry4": "四位专用进位 · MUXCY 与 XORCY",
+    "iobank": "I/O · 输入、输出与三态边界",
+    "dsp": "DSP · 乘法器与累加寄存器",
+    "register": "四位寄存器 · 并行存储与公共控制",
+    "dff": "D 触发器 · 主从锁存教学结构",
+    "latch": "D 锁存器 · 选择器与反馈",
+    "masterSlave": "主从结构 · 对比两级透明窗口",
+    "sramcell": "6T SRAM · 两个反相器、两个访问管",
+    "synchronizer": "两级同步 · 看见延迟而非“消除风险”",
+    "input": "外部输入 · 缓冲、同步、消抖、事件",
+    "debounce": "消抖 · 稳定计数与状态提交",
+    "edge": "边沿检测 · 两次采样与单次事件",
+    "scancounter": "计数器 · 加一与保持反馈",
+    "clocking": "时钟与复位 · 不与数据线混淆",
+    "reset": "复位释放 · 两级保持链",
+    "sram": "SRAM 阵列 · 行译码、位线和读写端口",
+    "bram": "Block RAM · 两端口与可选输出寄存器",
+    "pc": "程序计数器 · 地址反馈通路",
+    "regfile": "寄存器堆 · 两读一写",
+    "decoder": "2→4 译码器 · 四种精确匹配",
+    "subtract": "减法 · 按位取反加一",
+    "logic": "按位逻辑 · 四条并行运算",
+    "shifter": "四位桶形移位 · 先选 1 位，再选 2 位",
+    "transmission": "CMOS传输门 · 互补使能与高阻",
+    "decoder3": "3→8 行译码 · 低位预译码与高位分组",
+    "compare": "相等比较 · 四位异或与或归约树",
+    "fsm": "状态机 · 反馈决定下一步",
+    "instruction": "取指和字段 · 一条位串分成几路",
+    "immediate": "立即数 · 切片、拼接、符号扩展",
+    "control": "控制器 · 译码到控制信号",
+    "loadstore": "访存 · 有效地址、字节掩码、扩展",
+    "pipeline": "流水线 · 数据与控制一起跨级",
+    "forward": "前递 · 比较编号后选择新值",
+    "hazard": "相关检测 · 暂停与冲刷分开",
+    "branch": "分支 · 条件与目标并行计算",
+    "scan": "四位数码管 · 共享段线与独立位选",
+    "segmentdecode": "段译码 · 数字索引段码表",
+    "blanking": "消隐 · 关位、改段、开位",
+    "leddriver": "LED 支路 · 数字输出、限流与 PWM",
+    "uartcore": "UART · 独立收发、共用节拍概念",
+    "baud": "位节拍 · 模数计数比较",
+    "tx": "发送器 · 位选择与忙状态",
+    "rx": "接收器 · 同步、采样、移位与有效",
+    "shiftreg": "移位寄存器 · 串并转换",
+    "vgacore": "显示控制 · 坐标、时序、颜色三条路径",
+    "pixelcounter": "横纵计数 · 行末推进纵坐标",
+    "videotiming": "同步与消隐 · 区间比较",
+    "framebuffer": "帧缓冲 · 坐标到地址到像素",
+    "gpiocore": "GPIO · 数据与方向分开",
+    "adccore": "ADC 数据通路 · 模拟前端到数字有效",
+    "quantizer": "四位量化 · 阈值分区到数字编码",
+    "filter": "四点平均 · 八位延迟与十位求和",
+    "memorySystem": "存储层次 · 容量、访问与保持不同",
+    "cache": "直接映射 Cache · 数据和标记同时读",
+    "tag": "标记与有效位 · 相等还不够",
+    "cachefsm": "Cache 状态 · 查找、缺失、回填",
+    "dram": "DRAM · 行、列、感测与刷新",
+    "dramcell": "1T1C 动态位 · 一个访问管和一个电容",
+    "flash": "配置 Flash · 存储阵列与命令控制",
+    "config": "配置流程 · 接口、控制器、配置位",
+    "usbcore": "键盘输入 · 主机、报告、事件分层",
+    "usbtransport": "USB 主机概念 · 接入、枚举、事务",
+    "hidparser": "键盘报告 · 码字到边沿事件",
+    "routing": "可编程互连 · 配置选择通路",
+    "wires": "位模式接线 · 切片、拼接和扩展",
+    "switches": "拨码开关 · 滑块、两端触点与公共端",
+    "buttons": "按键 · 触点、回弹与偏置支路",
+    "clock": "晶振模块 · 振荡、整形与时钟分配",
+    "leds": "LED · 输出引脚、限流、电流路径与光",
+    "sevenseg": "数码管 · 四位共阳极与共享段线",
+    "programming": "下载接口 · 从位流到配置",
+    "uart": "串口 · 字节怎样变成位",
+    "usbhost": "USB Host · 从传输到按键事件",
+    "vga": "VGA · 从像素位置到颜色",
+    "pmod": "扩展端口 · 方向、数据与协议",
+    "xadc": "模拟接口 · 从幅值到数字码",
+    "power": "供电 · 开关、稳压、去耦与启动状态",
+    "io": "板上输入输出器件",
+    "system": "计算机系统 · 数据通路与存储接口",
+    "ledjunction": "LED 内部 · PN 结与发光概念",
+    "regulator": "降压稳压原理 · 开关、电感、电容与反馈",
+    "fifo": "FIFO · 环形队列、满空与同时读写",
+    "asyncrx": "异步接收 · 两级同步与位中心采样",
+    "register8": "八位寄存器 · 每一位都能展开",
+    "registerControl": "一位保存控制 · RESET优先于CE",
+    "multiply4": "四位无符号乘法 · 四轮移位与条件相加",
+    "divide4": "四位无符号除法 · 试减与恢复",
+    "restore5": "五位恢复选择 · 借位决定保留哪一组位",
+    "divideShift": "移位与拼接 · 每一位实际接到哪里",
+    "alu32": "32 位 ALU · 算术、移位与有符号比较",
+    "regfile32": "32×32 寄存器堆 · 两读一写与 x0",
+    "immgen32": "立即数生成 · 指令位到 32 位数值",
+    "decoder32": "指令解码 · 从编码到控制信号",
+    "cpu32": "程序运行 · 单周期 RV32I 教学 CPU",
+    "seq1011": "1011 序列检测 · 重叠匹配与边沿采样",
+    "float32": "浮点数拆解 · 同一32位模式的数值解释",
+    "repr4": "同一4位模式 · 无符号、原码、反码、补码",
+    "pipeline32": "五级流水CPU · 指令、前递、暂停与冲刷",
+    "demorganNand": "德摩根：与非等价",
+    "demorganNor": "德摩根：或非等价",
+    "truth2": "真值表、最小项与门级电路"
+  }
+}

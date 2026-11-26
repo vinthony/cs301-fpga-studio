@@ -1,0 +1,26 @@
+{
+  "source": "<LOCAL_HOME>/Downloads/计算机系统设计_上_15讲课程讲义合订本.docx",
+  "sha256": "0d9bffe8e3efa3faaae137ee3883b56dcba353b60d0b9ffec66943aa1238e19b",
+  "paragraph_numbering": "Word body XML paragraphs including tables, 1-based; not pages",
+  "paragraphs": 687,
+  "weeks": 15,
+  "matched_lab_tasks": 59,
+  "status": "source tasks matched current course-map.json exactly",
+  "concept_addition": {
+    "week": 3,
+    "paragraphs": [
+      239,
+      250
+    ],
+    "views": [
+      "demorganNand",
+      "demorganNor"
+    ],
+    "verified": "two laws, full 4-row truth tables, 32 gate drilldowns; 51 browser checks"
+  },
+  "limits": [
+    "not full Boolean algebra coverage",
+    "not student learning evidence",
+    "not physical FPGA timing validation"
+  ]
+}

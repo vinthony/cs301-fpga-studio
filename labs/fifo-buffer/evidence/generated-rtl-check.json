@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "postEdgeSnapshots": 20641,
+  "preEdgeSnapshots": 20640,
+  "packedBits": 52,
+  "coverage": "all 5 occupancies x 32 push/pop/step/clear/reset combinations plus 20000 deterministic random edges",
+  "reference": "independent Python deque plus physical-slot bookkeeping",
+  "stdout": "PASS 20641 edges\ntb.v:16: $finish called at 206410 (1s)"
+}

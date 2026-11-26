@@ -1,0 +1,22 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab07-sequence/project
+[info] loading settings for project lab07-sequence from build.sbt...
+[info] set current project to lab07-sequence (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab07-sequence/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab07-sequence/target/scala-2.13/classes ...
+[warn] 11 feature warnings; re-run with -feature for details
+[warn] one warning found
+[info] done compiling
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab07-sequence/target/scala-2.13/test-classes ...
+[warn] 26 feature warnings; re-run with -feature for details
+[warn] one warning found
+[info] done compiling
+[info] Sequence1011Spec:
+[info] Sequence1011
+[info] - should match every twelve-bit stream with overlap against a string oracle
+[info] - should hold on disabled clocks and reset synchronously with priority
+[info] Run completed in 1 second, 191 milliseconds.
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 13 s, completed Nov 24, 2026, 3:37:04 AM

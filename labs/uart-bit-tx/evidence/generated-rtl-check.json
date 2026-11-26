@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "postEdgeSnapshots": 14817,
+  "preEdgeSnapshots": 14816,
+  "packedBits": 16,
+  "coverage": "11 phases x 16 control combinations, all 256 bytes, 10000 random controls",
+  "reference": "independent Python encoded frame list",
+  "stdout": "PASS 14817 edges\ntb.v:16: $finish called at 148170 (1s)"
+}

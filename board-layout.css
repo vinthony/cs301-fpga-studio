@@ -1,0 +1,41 @@
+/* Component zones are kept separate from the two aligned I/O banks. */
+.basys .board-brand{left:11%;top:35%}
+.basys .segment-module{left:11%;top:48%;width:27%;height:14%}
+.basys .segment-label{left:11%;top:63%;width:27%}
+.basys .board-keys{left:70%;top:34%;width:18%;height:28%}
+.basys .io-bank{left:8%;width:84%;bottom:5%;height:25%;display:grid;grid-template-rows:minmax(0,1fr) minmax(0,1.4fr);gap:10px}
+.basys .io-bank:before{content:'';position:absolute;top:-13px;left:0;right:0;border-top:1px solid #a2c9d035;pointer-events:none}
+.basys .io-bank .leds,.basys .io-bank .switches{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));align-items:center;gap:0;margin:0;padding:5px 0;position:relative;border:1px solid #9ed3bf28;border-radius:6px;background:#0b2a3c48}
+.basys .io-bank .switches{border-color:#6fc7e34d;background:#0b2b464f}
+.basys .io-bank .pin{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:clamp(10px,1.4cqw,14px);font-weight:600;line-height:1.1;white-space:nowrap}
+.basys .io-bank .pin br{display:none}
+.basys .io-bank .led{margin:0}
+.basys .io-bank .sw{margin:0;flex-shrink:0}
+.basys .leds .pin-label:before{content:'LD'}
+.basys .switches .pin-label:before{content:'SW'}
+.board-expanded .basys .io-bank .switches{margin:0}
+.board-expanded .basys .board-keys{top:34%;height:28%}
+@container basys (max-width:500px){
+ .leds .pin-label:before,.switches .pin-label:before{content:''!important}
+ .io-bank .pin{gap:3px!important}
+ .io-bank{gap:6px!important}
+}
+@container basys (max-width:450px){
+ .segment-module{top:40%!important;height:14%!important}
+ .segment-label{top:35%!important;font-size:9px!important}
+ .board-keys{top:29%!important;height:29%!important}
+ .io-bank{height:29%!important;gap:4px!important}
+ .io-bank .leds,.io-bank .switches{padding:2px 0!important}
+ .io-bank .pin{font-size:9px!important;gap:2px!important}
+ .io-bank .sw{width:13px!important;height:21px!important;padding:2px!important}
+ .io-bank .sw i{height:7px!important;margin-top:8px}
+ .io-bank .sw.on i{margin-top:0}
+ .io-bank .led{width:7px!important;height:4px!important}
+ .board-key:after{content:attr(data-short)!important;font-size:11px!important;top:50%!important;left:0!important;width:100%!important;transform:translateY(-50%)!important}
+}
+@container basys (max-width:650px){
+ .io-bank .switches{padding:1px 0!important}
+ .io-bank .pin{gap:3px!important}
+ .io-bank .sw{height:22px!important}
+}
+@container basys (max-width:450px){.io-bank .sw{height:21px!important}.io-bank .pin{gap:2px!important}}

@@ -1,0 +1,20 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab01-button-led/project
+[info] loading settings for project lab01-button-led from build.sbt...
+[info] set current project to lab01-button-led (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab01-button-led/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab01-button-led/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab01-button-led/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] ButtonLedsSpec:
+[info] ButtonLeds
+[info] - should map all sixteen core input patterns without clock edges
+[info] - should adapt all five-button patterns and blank every display output
+[info] Run completed in 660 milliseconds.
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 3:53:45 AM
+[info] running cs301.EmitButtonLeds 
+[success] Total time: 1 s, completed Nov 24, 2026, 3:53:46 AM

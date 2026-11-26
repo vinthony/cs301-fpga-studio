@@ -1,0 +1,11 @@
+async()=>{
+let checks=0;const ok=(v,n)=>{if(!v)throw Error(n);checks++},wait=ms=>new Promise(r=>setTimeout(r,ms)),d=()=>document.querySelector('.anatomy-dialog[open]');ok(innerWidth<=850,'requires narrow viewport');
+d()?.querySelector('[data-an-close]').click();openArchitecture('fulladder');await wait(120);d().querySelector('[data-toggle="b"]').click();const input=()=>[...d().querySelectorAll('[data-toggle]')].map(n=>n.getAttribute('aria-pressed')).join(),before=input();
+const toggle=()=>d().querySelector('[data-outline-toggle]');toggle().click();ok(toggle().getAttribute('aria-expanded')==='true','expanded');ok(d().querySelector('.an-outline').clientHeight>200,'usable directory height');ok(document.activeElement.hasAttribute('data-an-search'),'focus search');toggle().click();ok(input()===before,'toggle preserves experiment');
+toggle().click();const search=d().querySelector('[data-an-search]');search.value='LUT';search.dispatchEvent(new Event('input',{bubbles:true}));ok([...d().querySelectorAll('.an-view-list [data-view]')].every(n=>(ANATOMY[n.dataset.view].title+' '+n.dataset.view).toLowerCase().includes('lut')),'search filters');d().querySelector('[data-view="lut"]').click();await wait(80);ok(d().dataset.view==='lut','search navigation');ok(toggle().getAttribute('aria-expanded')==='false','navigation closes directory');
+for(let i=0;i<ANATOMY_ROUTES.length;i++){
+ toggle().click();const menu=d().querySelector('.an-route-menu');menu.open=true;const button=d().querySelector(`[data-route="${i}"]`);button.scrollIntoView({block:'nearest'});button.click();await wait(80);
+ ok(d().dataset.view===ANATOMY_ROUTES[i].ids[0],'route starts '+i);ok(toggle().getAttribute('aria-expanded')==='false','route closes directory '+i);ok(!!d().querySelector('.an-main>.an-route-now'),'guide in visible main '+i);ok(d().querySelector('.an-route-now').getBoundingClientRect().height>0,'guide displayed '+i);ok(!!d().querySelector('.an-main>.an-context'),'position retained '+i);
+}
+d().querySelector('[data-focus-layout]').click();toggle().click();ok(d().querySelector('.an-outline').clientHeight>200,'directory available in focus mode');toggle().click();return {status:'passed',width:innerWidth,routes:ANATOMY_ROUTES.length,checks};
+}

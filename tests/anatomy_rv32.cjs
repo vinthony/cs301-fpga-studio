@@ -1,0 +1,16 @@
+const fs=require('fs'),vm=require('vm'),os=require('os'),path=require('path'),cp=require('child_process');
+const base=path.resolve(__dirname,'..'),ctx=vm.createContext({});
+for(const file of ['architecture.js','anatomy-catalog.js','anatomy-model.js','anatomy-experiments.js','anatomy-context.js','anatomy-learning.js','anatomy-rv32.js','anatomy-regfile32.js','anatomy-immediate32.js','anatomy-decoder32.js','anatomy-cpu32.js','anatomy-board-cpu.js'])vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),ctx);
+const ops=['ADD','SUB','AND','OR','XOR','SLL','SRL','SRA','SLT','SLTU'],edges=[0,1,15,31,32,33,0x7fffffff,0x80000000,0x80000001,0xfffffffe,0xffffffff];let seed=0x3012026;const random=()=>seed=(Math.imul(seed,1664525)+1013904223)>>>0;
+const rows=[];for(let op=0;op<10;op++){for(const a of edges)for(const b of edges)rows.push([a,b,op]);for(let j=0;j<128;j++)rows.push([random(),random(),op]);}
+let checks=0;const assert=(v,n)=>{if(!v)throw Error(n);checks++};const actual=[];
+for(const [a,b,op] of rows){const r=vm.runInContext(`anatomyALU32(${a},${b},'${ops[op]}')`,ctx);actual.push(r);const e=vm.runInContext(`(()=>{const s=anatomyState();s.av=${a};s.bv=${b};s.op='${ops[op]}';return anatomyEvaluate('alu32',s)})()`,ctx);assert(e.result===r.value,'model result');assert(Object.keys(e.nets).length===15,'all 15 connections');assert(e.partValues.O===e.nets['结果 R'],'output connected');assert(e.flags.zero===(e.result===0?1:0),'zero result');}
+// Independent HDL implementation uses fixed-width arithmetic, bitwise overflow
+// equations and Verilog signed casts, rather than calling the JavaScript helper.
+const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'cs301-alu32-'));try{
+fs.writeFileSync(path.join(tmp,'vectors.hex'),rows.map(([a,b,op])=>a.toString(16).padStart(8,'0')+b.toString(16).padStart(8,'0')+op.toString(16)).join('\n'));
+fs.writeFileSync(path.join(tmp,'tb.v'),`module tb;reg[67:0]vectors[0:${rows.length-1}];reg[31:0]a,b;reg[3:0]op;wire[31:0]y;wire z,s,c,v;integer i;rv32_alu dut(a,b,op,y,z,s,c,v);initial begin $readmemh("vectors.hex",vectors);for(i=0;i<${rows.length};i=i+1)begin {a,b,op}=vectors[i];#1;$display("%08h %b%b%b%b",y,z,s,c,v);end $finish;end endmodule`);
+cp.execFileSync('iverilog',['-g2012','-o',path.join(tmp,'sim'),path.join(base,'hardware/rv32_alu.v'),path.join(tmp,'tb.v')]);const lines=cp.execFileSync('vvp',[path.join(tmp,'sim')],{cwd:tmp,encoding:'utf8'}).trim().split('\n').filter(line=>/^[0-9a-f]{8} [01]{4}$/i.test(line));assert(lines.length===rows.length,'HDL vector count');lines.forEach((line,i)=>{const [hex,flags]=line.split(' '),r=actual[i];assert(parseInt(hex,16)===r.value&&flags===`${r.zero}${r.sign}${r.carry}${r.overflow}`,'HDL mismatch '+JSON.stringify(rows[i])+' '+line+' '+JSON.stringify(r))});
+}finally{fs.rmSync(tmp,{recursive:true,force:true})}
+for(const [a,b,op,value,c,v] of [[0x7fffffff,1,'ADD',0x80000000,0,1],[0xffffffff,1,'ADD',0,1,0],[0x80000000,1,'SUB',0x7fffffff,1,1],[0xffffffff,1,'SLT',1,0,0],[0xffffffff,1,'SLTU',0,0,0],[0x80000000,1,'SRA',0xc0000000,0,0],[0x80000000,1,'SRL',0x40000000,0,0],[1,32,'SLL',1,0,0]]){const r=vm.runInContext(`anatomyALU32(${a},${b},'${op}')`,ctx);assert(r.value===value&&r.carry===c&&r.overflow===v,'independent known boundary')}
+console.log(JSON.stringify({status:'passed',operations:10,HDLVectors:rows.length,checks}));

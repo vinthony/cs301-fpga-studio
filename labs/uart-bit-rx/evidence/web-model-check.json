@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "cases": 18209,
+  "checks": 36418,
+  "scope": "data,phase,busy,valid,error; step/clear adapter"
+}

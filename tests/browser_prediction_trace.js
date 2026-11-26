@@ -1,0 +1,11 @@
+async()=>{
+let checks=0;const ok=(v,n)=>{if(!v)throw Error(n);checks++},wait=ms=>new Promise(r=>setTimeout(r,ms)),d=()=>document.querySelector('.anatomy-dialog[open]');
+for(const [id,c]of Object.entries(AN_PREDICTIONS)){
+ d()?.querySelector('[data-an-close]').click();openArchitecture(id);await wait(60);const h=d().querySelector('.an-prediction'),rows=()=>[...h.querySelectorAll('[data-predict-snapshot]')];h.querySelector(`[data-predict="${c.answer}"]`).click();ok(rows().length===0,'no future observations '+id);h.querySelector('[data-predict-start]').click();ok(rows().length===1,'initial only '+id);
+ for(let i=0;i<c.steps.length;i++){
+  const ticks=rows().at(-1).dataset.ticks;h.querySelector('[data-predict-next]').click();ok(rows().length===i+2,'one snapshot per actual step '+id+i);if(c.steps[i].set&&!c.steps[i].action)ok(rows().at(-1).dataset.ticks===ticks,'input change no extra model count '+id+i);
+ }
+ ok(rows().at(-1).dataset.output===String(c.expected),'final snapshot independent expected '+id);const record=h.querySelector('[data-predict-trace]').innerHTML;d().querySelector('[data-observation-prev]').click();ok(h.querySelector('[data-predict-trace]').innerHTML===record,'history leaves completed diary intact '+id);d().querySelector('[data-observation-live]').click();h.querySelector('[data-predict-start]').click();ok(rows().length===1,'retry clears previous snapshots '+id);
+}
+d()?.querySelector('[data-an-close]').click();openArchitecture('dff');await wait(60);const h=d().querySelector('.an-prediction');h.querySelector('[data-predict="1"]').click();h.querySelector('[data-predict-start]').click();for(let i=0;i<3;i++)h.querySelector('[data-predict-next]').click();ok([...h.querySelectorAll('[data-predict-snapshot]')].map(n=>n.dataset.output).join(',')==='0,0,1,1','DFF actual output sequence');ok([...h.querySelectorAll('[data-predict-snapshot]')].map(n=>n.dataset.ticks).join(',')==='0,0,1,1','DFF only one edge');const before=h.querySelector('[data-predict-trace]').innerHTML;d().querySelector('[data-toggle="a"]').click();ok(h.querySelector('[data-predict-trace]').innerHTML===before,'manual edit preserves old records');return {status:'passed',cases:Object.keys(AN_PREDICTIONS).length,checks};
+}

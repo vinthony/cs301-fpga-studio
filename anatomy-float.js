@@ -1,0 +1,46 @@
+'use strict';
+ANATOMY_SOURCES.ieee32={title:'Oracle · IEEE binary32格式与特殊值',url:'https://docs.oracle.com/cd/E77782_01/html/E77791/z4000ac019878.html'};
+function anatomyDecodeFloat32(word){
+ word>>>=0;const sign=word>>>31,exponent=(word>>>23)&255,fraction=word&0x7fffff;
+ const kind=exponent===255?(fraction?'NaN':'无穷'):exponent===0?(fraction?'非规格化数':'零'):'规格化数';
+ const effectiveExponent=exponent===0?-126:exponent-127,hidden=exponent===0?0:1;
+ const value=exponent===255?(fraction?'NaN':sign?'-Infinity':'+Infinity'):exponent===0&&fraction===0?(sign?'-0':0):(sign?-1:1)*(hidden+fraction/2**23)*2**effectiveExponent;
+ return {word,sign,exponent,fraction,kind,effectiveExponent,hidden,value};
+}
+plate('float32','浮点数拆解 · 同一32位模式的数值解释',[
+ P('BITS',null,'port',-8,0,'32位输入'),P('SIGN',null,'logic',-3,-4,'符号 s'),P('EXP',null,'logic',-3,0,'偏置指数 e'),P('FRAC',null,'logic',-3,4,'尾数字段 f'),P('VALUE',null,'logic',5,0,'分类与数值解释')
+],[N('符号位','BITS.s','SIGN.i'),N('指数域','BITS.e','EXP.i',8),N('尾数域','BITS.f','FRAC.i',23),N('符号解释','SIGN.o','VALUE.s'),N('指数解释','EXP.o','VALUE.e',8),N('尾数解释','FRAC.o','VALUE.f',23)],[
+ S('先分字段','从高位到低位：1位符号、8位偏置指数、23位小数字段。',['BITS','SIGN','EXP','FRAC']),S('先分类，再套公式','e=0与e=255需特殊处理；不能把所有编码都按隐藏1解释。',['EXP','FRAC','VALUE']),S('逐位观察','切换符号、指数和尾数位，观察值的跳变与特殊编码。',['SIGN','EXP','FRAC','VALUE'])
+],{lab:'float32',layer:'Week02 · 数据表示',sources:['ieee32'],boundary:'IEEE binary32编码解释与最近偶数舍入的加法教学模型，不是完整FPU。不模拟全部舍入模式、异常标志与NaN传播策略。解码保留原始NaN位模式；加法使用规范教学NaN，不区分信号/安静行为。',question:'指数全零时为什么隐藏位变为0？正零和负零的位模式相同吗？'});
+const anFloatState=anatomyState;anatomyState=function(){return {...anFloatState(),fpWord:0x3f800000,fpPreset:'tenth',fpAddA:0x3dcccccd,fpAddB:0x3e4ccccd}};
+const AN_FLOAT_PRESETS={one:0x3f800000,tenth:0x3dcccccd,subnormal:1,normal:0x00800000,negativezero:0x80000000,infinity:0x7f800000,nan:0x7fc00001,max:0x7f7fffff};
+const anFloatEval=anatomyEvaluate;anatomyEvaluate=function(id,s){if(id!=='float32')return anFloatEval(id,s);const f=anatomyDecodeFloat32(s.fpWord);return {result:f.value,led:s.fpWord&65535,digits:[0,0,0,0],nets:{'符号位':f.sign,'指数域':f.exponent,'尾数域':f.fraction,'符号解释':f.sign,'指数解释':f.exponent,'尾数解释':f.fraction},partValues:{BITS:'0x'+f.word.toString(16).padStart(8,'0'),SIGN:f.sign,EXP:f.exponent,FRAC:f.fraction,VALUE:f.kind},watch:[{name:'分类 / 数值',value:f.kind+' / '+f.value,why:'先识别特殊指数，再解释字段'},{name:'符号 / 偏置指数 / 尾数字段',value:f.sign+' / '+f.exponent+' / '+f.fraction,why:'1 + 8 + 23 位；不是整数补码字段'},{name:'有效指数',value:f.exponent===255?'特殊编码':String(f.effectiveExponent),why:f.exponent===0?'非规格化使用-126，不是-127':'普通指数减127；特殊编码不套数值公式'},{name:'隐藏位',value:f.exponent===255?'不适用':String(f.hidden),why:'规格化数为1，非规格化数和零为0'}]}};
+const anFloatAdvance=anatomyAdvance;anatomyAdvance=function(id,s,action='tick'){if(id!=='float32'||action==='reset')return anFloatAdvance(id,s,action);if(action==='preset'&&Object.hasOwn(AN_FLOAT_PRESETS,s.fpPreset))s.fpWord=AN_FLOAT_PRESETS[s.fpPreset];if(action==='sumToBits')s.fpWord=anatomyFloatAddTrace(s.fpAddA,s.fpAddB).word;if(action==='tieeven'){s.fpAddA=0x3f800000;s.fpAddB=0x33800000}if(action==='tieodd'){s.fpAddA=0x3f800001;s.fpAddB=0x33800000}};
+anExp('float32',[{...anNum('fpWord','原始32位编码（0x十六进制）',0,0xffffffff),type:'word'},{...anNum('fpAddA','加法输入 A 的binary32编码',0,0xffffffff),type:'word'},{...anNum('fpAddB','加法输入 B 的binary32编码',0,0xffffffff),type:'word'},anChoice('fpPreset','选择边界实例',[['one','1.0'],['tenth','0.1的binary32近似'],['subnormal','最小正非规格化数'],['normal','最小正规格化数'],['negativezero','负零'],['infinity','正无穷'],['nan','NaN'],['max','最大有限正数']])],[['preset','装载选中实例'],['sumToBits','把加法结果送入主图拆解'],['tieeven','中点例：保留偶数'],['tieodd','中点例：奇数进位']],'本页解释编码，修改输入即时重算，不需要时钟。0.1实例显示实际binary32近似值。');
+function anatomyFloatMarkup(b,s){if(b.id!=='float32')return '';const f=anatomyDecodeFloat32(s.fpWord),bits=f.word.toString(2).padStart(32,'0');return '<section class="an-float-inspect"><h4>符号 · 指数 · 小数字段</h4><div class="an-float-bits">'+Array.from(bits,(v,i)=>'<button data-float-bit="'+(31-i)+'" class="'+(i===0?'sign':i<9?'exponent':'fraction')+'" aria-pressed="'+(v==='1')+'" aria-label="翻转bit'+(31-i)+'，当前'+v+'"><small>'+(31-i)+'</small><b>'+v+'</b></button>').join('')+'</div><p>分类：<b>'+f.kind+'</b> · 数值：<b>'+f.value+'</b></p><p class="an-float-formula">'+(f.exponent===255?(f.fraction?'指数全1且尾数非零 → NaN，不套有限值公式':'指数全1且尾数为零 → 有符号无穷'):'(−1)^'+f.sign+' × 2^('+f.effectiveExponent+') × ('+f.hidden+' + '+f.fraction+'/8388608)')+'</p><small>青色：符号；黄色：指数；紫色：尾数。点击翻转一位。隐藏位不占这32位中的任何一位。</small></section>'+anatomyFloatAdditionMarkup(s)}
+// Exact integer alignment and round-to-nearest, ties-to-even for two finite binary32 operands.
+// Special-value selection below is pedagogical: canonical NaN, no flags or NaN payload propagation.
+function anatomyFloatAddTrace(aWord,bWord){
+ const a=anatomyDecodeFloat32(aWord),b=anatomyDecodeFloat32(bWord),unpack=f=>({sig:BigInt((f.exponent?0x800000:0)+f.fraction),exp:f.exponent?f.exponent-150:-149});
+ if(a.exponent===255||b.exponent===255){const nan=a.kind==='NaN'||b.kind==='NaN'||(a.kind==='无穷'&&b.kind==='无穷'&&a.sign!==b.sign),word=nan?0x7fc00000:a.exponent===255?a.word:b.word;return {a,b,word,output:anatomyDecodeFloat32(word),special:true,note:'特殊值路径；NaN规范为教学安静NaN，不模拟载荷或异常标志。'}}
+ const x=unpack(a),y=unpack(b),base=Math.min(x.exp,y.exp),left=(a.sign?-x.sig:x.sig)<<BigInt(x.exp-base),right=(b.sign?-y.sig:y.sig)<<BigInt(y.exp-base),exact=left+right;
+ if(exact===0n){const word=a.sign&&b.sign?0x80000000:0;return {a,b,word,output:anatomyDecodeFloat32(word),special:false,base,exact:'0',significand:'0',shift:0,remainder:'0',half:'0',roundedUp:false,tie:false,inexact:false,note:'精确抵消得到+0；两个负零相加保留-0。'}}
+ const sign=exact<0n?1:0,n=exact<0n?-exact:exact;let top=n.toString(2).length-1+base,step=top< -126?-149:top-23,shift=step-base,q,rem=0n,half=0n;
+ if(shift>0){q=n>>BigInt(shift);rem=n-(q<<BigInt(shift));half=1n<<BigInt(shift-1)}else q=n<<BigInt(-shift);
+ const tie=shift>0&&rem===half,up=shift>0&&(rem>half||(tie&&(q&1n)===1n)),before=q;if(up)q++;
+ let exponent=0,fraction=0;if(top>=-126){if(q>=0x1000000n){q>>=1n;top++}if(top>127){exponent=255;fraction=0}else{exponent=top+127;fraction=Number(q-0x800000n)}}else if(q>=0x800000n){exponent=1;fraction=0}else fraction=Number(q);
+ const word=((sign<<31)|(exponent<<23)|fraction)>>>0;
+ return {a,b,word,output:anatomyDecodeFloat32(word),special:false,base,exact:exact.toString(),significand:before.toString(),shift,remainder:rem.toString(),half:half.toString(),roundedUp:up,tie,overflow:exponent===255,inexact:rem!==0n||exponent===255,note:exponent===255?'结果超过binary32有限范围，本模式舍入为有符号无穷。':tie?'恰在中点，选择最低保留位为偶数的结果。':up?'舍弃部分大于半单位，向上取最近结果。':rem!==0n?'舍弃部分小于半单位，保留较近结果。':'结果恰好可表示，不需要舍入。'};
+}
+
+function anatomyFloatRoundingGraph(t){
+ if(t.special)return '';
+ if(t.overflow)return '<p class="an-fp-overflow">有限范围溢出：不把无穷画成有限相邻网格点；结果为'+t.output.value+'。</p>';
+ if(!t.inexact)return '<p class="an-fp-exact">精确结果已在可表示点上，无需向相邻点舍入。</p>';
+ const q=BigInt(t.significand),den=1n<<BigInt(t.shift),ratio=Number(BigInt(t.remainder))/Number(den),x=40+ratio*340,chosen=t.roundedUp?380:40,mid=t.tie;
+ return '<figure class="an-fp-rounding" data-round-up="'+t.roundedUp+'" data-round-tie="'+t.tie+'"><figcaption>绝对值的舍入区间 · 中点两侧选择最近</figcaption><svg viewBox="0 0 420 165" role="img" aria-label="精确和位于候选区间约'+(ratio*100).toFixed(2)+'%处，'+(mid?'恰为中点，':'')+(t.roundedUp?'向上取候选':'保留下方候选')+'"><path d="M40 78H380" stroke="#8bb4c0" stroke-width="3"/><path d="M210 45V100" stroke="#7997a9" stroke-dasharray="4 3"/><text x="210" y="30" text-anchor="middle" fill="#afc6d0" font-size="11">中点 ½</text><circle cx="40" cy="78" r="6" fill="#b9d7c2"/><circle cx="380" cy="78" r="6" fill="#b9d7c2"/><path d="M'+x+' 48V70" stroke="#f1d28a" stroke-width="2"/><circle cx="'+x+'" cy="78" r="5" fill="#f5d27f"/><text x="'+Math.min(335,Math.max(85,x))+'" y="48" text-anchor="middle" fill="#f5d27f" font-size="11">精确和约 '+(ratio*100).toFixed(2)+'%</text><text x="25" y="108" fill="#bfd6dc" font-size="10">保留商 '+q+'</text><text x="395" y="108" text-anchor="end" fill="#bfd6dc" font-size="10">保留商 '+(q+1n)+'</text><path d="M'+(chosen-7)+' 128L'+chosen+' 116L'+(chosen+7)+' 128Z" fill="#8fd8b9"/><text x="210" y="153" text-anchor="middle" fill="#b9d9ca" font-size="11">'+(mid?'等距：选择偶数商':'箭头：最终保留的一侧')+' · 单位为 2^('+(t.base+t.shift)+')</text></svg><small>图按绝对值展示；负数最后恢复符号。位置百分比只用于画图，舍入判断使用精确整数。</small></figure>';
+}
+function anatomyFloatAdditionMarkup(s){
+ const t=anatomyFloatAddTrace(s.fpAddA,s.fpAddB),hex=w=>'0x'+w.toString(16).toUpperCase().padStart(8,'0');
+ return '<section class="an-float-add"><h4>精确对齐 → 最近偶数舍入</h4><p>与上方主图编码独立；点击“把加法结果送入主图拆解”建立对应。</p><table><thead><tr><th>输入/结果</th><th>实际数值</th><th>位模式</th></tr></thead><tbody>'+[['A',t.a],['B',t.b],['A+B 舍入后',t.output]].map(([label,f])=>'<tr><th>'+label+'</th><td>'+f.value+'</td><td>'+hex(f.word)+'</td></tr>').join('')+'</tbody></table>'+(t.special?'<p>'+t.note+'</p>':'<ol><li>以2^('+t.base+')对齐，精确和为整数 <b>'+t.exact+'</b> × 2^('+t.base+')。</li><li>保留前的整数商 '+t.significand+'；丢弃位数 '+Math.max(0,t.shift)+'；余数 '+t.remainder+'，半单位 '+t.half+'。</li><li>'+t.note+' 最终编码 '+hex(t.word)+'。</li></ol>')+anatomyFloatRoundingGraph(t)+'<small>binary32固定采用最近值、相等取偶数；不模拟全部IEEE异常标志。十进制0.1/0.2先近似为binary32，再做本次加法；JavaScript普通Number为binary64，不能混为同一实验。</small></section>';
+}

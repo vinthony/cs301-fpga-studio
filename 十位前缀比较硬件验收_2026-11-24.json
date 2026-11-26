@@ -1,0 +1,39 @@
+{
+  "zipBytes": 10408,
+  "zipSHA256": "69fc3211a5c04b244451e32450861dfa977b72e350e1ab68cfa74a733993eb46",
+  "files": 13,
+  "review": "<LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/work/compare10-review-tc0ink9a/compare10-prefix",
+  "verification": {
+    "status": "passed",
+    "allWordPairs": 1048576,
+    "singleBitTruthCases": 16,
+    "comparedBitsPerWordPair": 24,
+    "prefixBitsPerWordPair": 22,
+    "samplePairs": 16,
+    "rtlSHA256": "4d1d0bcf86c0d724fd098d8dc250aaad6b18fb7b3079a79826331cc5d5546f46",
+    "vectorSHA256": "c000026429605850cdd6ceb9909a0dc537f4b3471f657b3169aec31b5761fa64",
+    "reference": "Integer division compares every high prefix directly; no EQ/LT recurrence in Python oracle.",
+    "boundary": "Combinational functional simulation only. No clock, state, mapping, vendor netlist, propagation-delay or physical-board proof."
+  },
+  "web": {
+    "status": "passed",
+    "allWordPairs": 1048576,
+    "singleBitCases": 16,
+    "comparedBitsPerWordPair": 24
+  },
+  "unpackedRecheck": {
+    "status": "passed",
+    "allWordPairs": 1048576,
+    "singleBitTruthCases": 16,
+    "comparedBitsPerWordPair": 24,
+    "prefixBitsPerWordPair": 22,
+    "samplePairs": 16,
+    "rtlSHA256": "4d1d0bcf86c0d724fd098d8dc250aaad6b18fb7b3079a79826331cc5d5546f46",
+    "vectorSHA256": "c000026429605850cdd6ceb9909a0dc537f4b3471f657b3169aec31b5761fa64",
+    "reference": "Integer division compares every high prefix directly; no EQ/LT recurrence in Python oracle.",
+    "boundary": "Combinational functional simulation only. No clock, state, mapping, vendor netlist, propagation-delay or physical-board proof."
+  },
+  "browserDownloadVerified": true,
+  "browserChecks": 6,
+  "scope": "门级组合功能及所有前缀对照；无时钟、保存状态、厂商映射、时延、实体板或VGA硬件替换验证。"
+}

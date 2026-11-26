@@ -1,0 +1,24 @@
+[info] welcome to sbt 1.10.7 (Homebrew Java 21.0.11)
+[info] loading project definition from <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab06-state/project
+[info] loading settings for project lab06-state from build.sbt...
+[info] set current project to lab06-state (in build file:<LOCAL_HOME>/Documents/ChatGPT/CS301%20-%20计算机系统设计/outputs/芯片细胞实验室/labs/lab06-state/)
+[info] compiling 1 Scala source to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab06-state/target/scala-2.13/classes ...
+[info] done compiling
+[info] compiling 2 Scala sources to <LOCAL_HOME>/Documents/ChatGPT/CS301 - 计算机系统设计/outputs/芯片细胞实验室/labs/lab06-state/target/scala-2.13/test-classes ...
+[info] done compiling
+[info] StateElementsSpec:
+[info] StateElements
+[info] - should hold before edges and honor clear before enable across a stateful stream
+[info] - should toggle on the exact configured number of active edges
+[info] InputConditionerSpec:
+[info] InputConditioner
+[info] - should match staged sampling and pause clear priority
+[info] - should saturate a short observation counter and retain an event while sampling is paused
+[info] Run completed in 1 second, 253 milliseconds.
+[info] Total number of tests run: 4
+[info] Suites: completed 2, aborted 0
+[info] Tests: succeeded 4, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 3 s, completed Nov 24, 2026, 4:55:37 AM
+[info] running cs301.EmitInput 
+[success] Total time: 1 s, completed Nov 24, 2026, 4:55:38 AM

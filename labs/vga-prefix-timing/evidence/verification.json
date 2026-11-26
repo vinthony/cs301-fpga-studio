@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "coordinateControlCases": 1667200,
+  "colorCases": 16384,
+  "trajectoryEdges": 853601,
+  "totalEdges": 2537185,
+  "preChecksPerVector": 17,
+  "postChecksPerVector": 2,
+  "sampleEdges": 2501,
+  "vectorSHA256": "f01bb04ba758dccbf1354504fc09cf542f364fc835442e03fbd4bd197e40b083",
+  "rtlSHA256": {
+    "RasterCounter.v": "574fab9a63295b3c9ffddddb9ec9ed2ea047ce4441a9227c91b7745be2d4c282",
+    "Compare10.v": "4d1d0bcf86c0d724fd098d8dc250aaad6b18fb7b3079a79826331cc5d5546f46",
+    "VGAPrefixTiming.v": "cf9f2cadb0a29436b643c22d3e2932095257ed3a7bc3f2254479e352505c3b42"
+  },
+  "mode": {
+    "visible": [
+      640,
+      480
+    ],
+    "total": [
+      800,
+      521
+    ],
+    "hsLow": [
+      656,
+      752
+    ],
+    "vsLow": [
+      490,
+      492
+    ]
+  },
+  "boundary": "Exhaustive phase injects valid initial coordinates. Continuous phase uses prior state. Uniform combinational RGB only; no framebuffer/PLL/XDC/STA/physical monitor verification."
+}

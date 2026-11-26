@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-24",
+  "package": "outputs/芯片细胞实验室/labs/lab06-state.zip",
+  "bytes": 53268,
+  "sha256": "dd661790f5e95dfc263bb4e68ba2ab49f482bad645892c27f8bea77f54d429a5",
+  "chiselTests": 4,
+  "freshExtractedPackage": "test and EmitInput passed",
+  "generatedRTL": {
+    "status": "passed",
+    "reference": "independent Python finite-state sampler",
+    "exhaustiveRawPatterns": 4096,
+    "bitsPerPattern": 12,
+    "randomControls": 4096,
+    "postEdgeSnapshots": 73729,
+    "preEdgeHoldSnapshots": 73728,
+    "outputsComparedPerSnapshot": 7,
+    "rtl": "generated/InputConditioner.v",
+    "counter": "32-bit saturating; near-maximum counter boundary tested in Chisel with 2-bit parameter",
+    "stdout": "PASS 73729 edges 73728 held-before-edge\ntb.v:16: $finish called at 737290 (1s)"
+  },
+  "webModel": {
+    "sameIndependentVectors": 73729,
+    "checks": 147457,
+    "status": "passed"
+  },
+  "physicalValidation": false,
+  "counterBoundary": "hardware uses 32-bit saturating count; webpage count remains unbounded beyond the verified range"
+}
