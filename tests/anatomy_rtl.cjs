@@ -4,7 +4,7 @@ const ids=['and','or','xor','nand','nor','cmos','mux','halfadder','fulladder'],p
 for(const id of ids){let b=atlas[id],pins=new Set(['Y.i','CO.i','A.o','B.o','C.o','S.o','V.o','GND.i']);for(const n of b.nets){pins.add(n.from);pins.add(n.to)}for(const p of b.parts)for(const x of ['a','b','o','s','d','g'])pins.add(p.id+'.'+x);
  rtl+=`module ${id}_c(input A,B,C, output Y,CO);\nwire ${[...pins].map(pin).join(',')};\nassign A_o=A;assign B_o=B;assign C_o=C;assign S_o=C;assign V_o=1'b1;assign GND_i=1'b0;\n`;
  for(const n of b.nets)rtl+=['nand','nor','cmos'].includes(id)?`tran(${pin(n.to)},${pin(n.from)});\n`:`assign ${pin(n.to)}=${pin(n.from)};\n`;
- for(const p of b.parts){let k=p.type;if(['and','or','xor','nand','nor'].includes(k))rtl+=`assign ${p.id}_o=${['nand','nor'].includes(k)?'~':''}(${p.id}_a ${['and','nand'].includes(k)?'&':['or','nor'].includes(k)?'|':'^'} ${p.id}_b);\n`;if(['not','inverter'].includes(k))rtl+=`assign ${p.id}_o=~${p.id}_a;\n`;if(k==='nmos'||k==='pmos')rtl+=`tranif${k==='nmos'?'1':'0'} (${p.id}_s,${p.id}_d,${p.id}_g);\n`;}
+ for(const p of b.parts){let k=p.type;if(['and','or','xor','nand','nor'].includes(k))rtl+=`assign ${p.id}_o=${['nand','nor'].includes(k)?'~':''}(${p.id}_a ${['and','nand'].includes(k)?'&':['or','nor'].includes(k)?'|':'^'} ${p.id}_b);\n`;if(['not','inverter'].includes(k))rtl+=`assign ${p.id}_o=~${p.id}_a;\n`;if(k==='nmos'||k==='pmos')rtl+=`${k} (${p.id}_d,${p.id}_s,${p.id}_g);\n`;}
  rtl+=`assign Y=Y_i;assign CO=${['halfadder','fulladder'].includes(id)?'CO_i':"1'b0"};endmodule\n`;
 }
 rtl+='module tb;reg A,B,C;integer i;';for(const id of ids)rtl+=`wire ${id}_y,${id}_co;${id}_c u_${id}(A,B,C,${id}_y,${id}_co);\n`;
